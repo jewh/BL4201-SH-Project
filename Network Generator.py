@@ -81,7 +81,7 @@ class EvolvedNetwork:
         jacobian = network.create_network()
         print(jacobian)
         # Create a 'population' vector describing the population at time t, which will be our output
-        out = np.zeros((self.nodes, self.iterations), dtype=int)
+        out = np.zeros((self.nodes, self.iterations), dtype=float)
         # Create an initial state for this population
         for i in range(0, self.nodes):
             for j in range(0, self.iterations):
@@ -104,7 +104,6 @@ class EvolvedNetwork:
 
     def output_file(self):
         file = np.savetxt("Outputs - Extinction Networks\{0} network n{1} L{2} N{3} I{4}.txt".format(self.kind, self.nodes, self.links, self.noise, self.iterations), self.evolve_system())
-        true_network = np.savetxt("Outputs - Extinction Networks\{0} network n{1} L{2} a{3} b{4}.txt".format(self.nodes, self.links, self.alpha, self.beta), InteractionNetwork(self.nodes, self.links, self.alpha, self.beta))
 
 
 out = EvolvedNetwork('extinction', 5, 10, 4.0, 10)
