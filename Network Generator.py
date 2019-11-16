@@ -102,11 +102,10 @@ class EvolvedNetwork:
         return out
 
     def output_file(self):
-        file = open("{0} network n{1} L{2} N{3} I{4}.txt".format(self.kind, self.nodes, self.links, self.noise, self.iterations), 'w+')
-        file.write(self.evolve_system())
+        file = np.savetxt("Outputs - Extinction Networks\{0} network n{1} L{2} N{3} I{4}.txt".format(self.kind, self.nodes, self.links, self.noise, self.iterations), self.evolve_system())
         return file
 
 out = EvolvedNetwork('extinction', 5, 10, 4.0, 10)
-print(out.evolve_system())
-print(out.output_file())
+# print(out.evolve_system())
+# print(out.output_file())
 
