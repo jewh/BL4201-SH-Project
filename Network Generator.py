@@ -1,4 +1,5 @@
 
+#
 import random as rd
 import numpy as np
 import scipy as sc # Need scipy for the random graph generation
@@ -20,6 +21,7 @@ def noisy_interaction(interaction, abundance, noise_factor):
     sd = rd.random()*float(noise_factor)/(abundance + 1)
     out = rd.normalvariate(interaction, sd)
     return out
+
 
 def non_unitary_heaviside(x1, x2):
     if x1 == 0 or x1 < 0:
@@ -82,7 +84,7 @@ class EvolvedNetwork:
         # Create an initial state for this population
         for i in range(0, self.nodes):
             for j in range(0, self.iterations):
-                out[i, j] = 10.0  # Set to an arbitrarily constant value for now, can change later, just want reproducibility
+                out[i, j] = 10.0  # Set to an arbitrary constant value for now, can change later, just want reproducibility
         t = 0  # create time counter
         # Now evolve the system, for different kinds of network:
         if self.kind == 'extinction':
@@ -95,11 +97,16 @@ class EvolvedNetwork:
                         else:
                             for k in range(0, self.nodes):
                                 out[i, j] = non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise)*out[k, j], 0.0) # heaviside function creates extinction
-                print('{} is not a valid kind of network!'.format(self.kind))
-            return out
+        else:
+            print('ERROR: {} is not a valid kind of network!'.format(self.kind))
+        return out
+
+    def output_file(self):
+        file = open("{0} network n{1} L{2} N{3} I{4}.txt".format(self.kind, self.nodes, self.links, self.noise, self.iterations), 'w+')
+        file.write(self.evolve_system())
+        return file
 
 out = EvolvedNetwork('extinction', 5, 10, 4.0, 10)
 print(out.evolve_system())
-out_control = EvolvedNetwork('extinction_control', 5, 10, 4.0, 10)
-print(out_control.evolve_system())
+print(out.output_file())
 
