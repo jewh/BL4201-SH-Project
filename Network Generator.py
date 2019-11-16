@@ -43,7 +43,7 @@ class InteractionNetwork:
         # Generate a random graph with n nodes and m directed edges:
         network = nx.gnm_random_graph(self.nodes, self.links, directed=True)
         for (i, j) in network.edges():
-            network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta)*(-1)**(rd.choice((1, 2, 4, 6)))
+            network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta)*(-1)**(rd.choice((1, 2)))
         jacobian = nx.to_numpy_matrix(network, dtype=float)
         return jacobian
 
@@ -79,8 +79,9 @@ class EvolvedNetwork:
     def evolve_system(self):
         network = InteractionNetwork(self.nodes, self.links, self.alpha, self.beta)
         jacobian = network.create_network()
+        print(jacobian)
         # Create a 'population' vector describing the population at time t, which will be our output
-        out = np.zeros((self.nodes, self.iterations), dtype=float)
+        out = np.zeros((self.nodes, self.iterations), dtype=int)
         # Create an initial state for this population
         for i in range(0, self.nodes):
             for j in range(0, self.iterations):
@@ -103,9 +104,10 @@ class EvolvedNetwork:
 
     def output_file(self):
         file = np.savetxt("Outputs - Extinction Networks\{0} network n{1} L{2} N{3} I{4}.txt".format(self.kind, self.nodes, self.links, self.noise, self.iterations), self.evolve_system())
-        return file
+        true_network = np.savetxt("Outputs - Extinction Networks\{0} network n{1} L{2} a{3} b{4}.txt".format(self.nodes, self.links, self.alpha, self.beta), InteractionNetwork(self.nodes, self.links, self.alpha, self.beta))
+
 
 out = EvolvedNetwork('extinction', 5, 10, 4.0, 10)
-# print(out.evolve_system())
-# print(out.output_file())
+print(out.evolve_system())
+print(out.output_file())
 
