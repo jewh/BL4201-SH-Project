@@ -76,9 +76,27 @@ class EvolvedNetwork:
         self.beta = beta      # describes network weight distribution
         self.time = time      # length of system evolution
 
+    def create_network(self):
+        # Generate a random graph with n nodes and m directed edges:
+        network = nx.gnm_random_graph(self.nodes, self.links, directed=True)
+        for (i, j) in network.edges():
+            network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta)*(-1)**(rd.choice((1, 2)))
+        jacobian = nx.to_numpy_matrix(network, dtype=float)
+        return jacobian
+
+    # ***This function appears to work as intended, maybe need to alter the distribution of interaction strengths though***
+    # Now create function for visualising the network structure
+    def true_network(self):
+        jacobian = self.create_network()
+        g = nx.from_numpy_matrix(jacobian, create_using=nx.DiGraph())
+        plt.subplot(111)
+        nx.draw(g, with_labels=True, font_weight='bold', pos=nx.circular_layout(g))
+        plt.suptitle("Network on {0} nodes, with {1} links".format(self.nodes, self.links))
+        plt.title("With interactions given by a beta distribution where alpha = {0}, beta = {1}".format(self.alpha, self.beta))
+        plt.show()
+
     def evolve_system(self):
-        network = InteractionNetwork(self.nodes, self.links, self.alpha, self.beta)
-        jacobian = network.create_network()
+        jacobian = self.create_network()
         print(jacobian)
         # Create a 'population' vector describing the population at time t, which will be our output
         out = np.zeros((self.nodes, self.iterations), dtype=float)
@@ -108,5 +126,7 @@ class EvolvedNetwork:
 
 out = EvolvedNetwork('extinction', 5, 10, 4.0, 10)
 print(out.evolve_system())
-print(out.output_file())
+print(out.create_network())
+# print(out.network())
+out.output_file()
 
