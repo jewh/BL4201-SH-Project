@@ -5,6 +5,7 @@ import numpy as np
 import scipy as sc # Need scipy for the random graph generation
 import matplotlib.pyplot as plt
 import networkx as nx
+import timeit as time
 
 rd.seed(0)
 
@@ -70,7 +71,6 @@ class EvolvedNetwork:
 
     def evolve_system(self):
         jacobian = self.create_network()
-        print('pass')
         # Create a 'population' vector describing the population at time t, which will be our output
         out = np.zeros((self.nodes, self.iterations), dtype=float)
         # And a positive control network too.
@@ -113,7 +113,7 @@ class EvolvedNetwork:
 
 
 #Now generate data for analysis
-number_networks = 20
+number_networks = 10
 for i in range(0, number_networks):
     out = EvolvedNetwork('extinction', 6, 15, 4.0, 1000, i)
     out.evolve_system()
