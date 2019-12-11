@@ -37,7 +37,7 @@ def non_unitary_heaviside(x1, x2):
 
 #Create a function that bounds interactions by a number, for some global bound (positive int)
 
-pos_real_bound = 1000
+pos_real_bound = 1000.0
 
 def bound(x):
     if abs(x) < pos_real_bound:
@@ -89,14 +89,14 @@ class EvolvedNetwork:
     def evolve_system(self):
         jacobian = self.create_network()
         # Create a 'population' vector describing the population at time t, which will be our output
-        out = np.zeros((self.nodes, self.iterations), dtype=float)
+        out = np.zeros((self.iterations, self.nodes), dtype=float)
         # And a positive control network too.
-        control = np.zeros((self.nodes, self.iterations), dtype=float)
+        control = np.zeros((self.iterations, self.nodes), dtype=float)
         # And a totally random, negative control
-        neg_control = np.zeros((self.nodes, self.iterations), dtype=float)
+        neg_control = np.zeros((self.iterations, self.nodes), dtype=float)
         # Create an initial state for this population
-        for i in range(0, self.nodes):
-            for j in range(0, self.iterations):
+        for i in range(0, self.iterations):
+            for j in range(0, self.nodes):
                 out[i, j] = 10.0  # Set to an arbitrary constant value for now, can change later, just want reproducibility
                 control[i, j] = 10.0
         t = 0  # create time counter
@@ -104,15 +104,15 @@ class EvolvedNetwork:
         if self.kind == 'extinction':
             while t < self.time:
                 t = t + 1
-                for i in range(0, self.nodes):
-                    for j in range(0, self.iterations):
+                for i in range(0, self.iterations):
+                    for j in range(0, self.nodes):
                         neg_control[i, j] = rd.uniform(-1*pos_real_bound, pos_real_bound+1.0) # creates a random negative control network for testing
                         if out[i, j] == 0:  # This keeps nodes extinct
                             break
                         else:
                             for k in range(0, self.nodes):
-                                out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise)*out[k, j], 0.0)) # heaviside function creates extinction
-                                control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise) * out[k, j])
+                                out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, j], out[k, i], self.noise)*out[k, i], 0.0)) # heaviside function creates extinction
+                                control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, j], out[k, i], self.noise) * out[k, i])
             # Now create .txt outputs for these networks.
             file_network = np.savetxt(
                 f"Outputs - Extinction Networks {self.kind} network structure with n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
