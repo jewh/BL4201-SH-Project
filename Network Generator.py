@@ -89,11 +89,11 @@ class EvolvedNetwork:
     def evolve_system(self):
         jacobian = self.create_network()
         # Create a 'population' vector describing the population at time t, which will be our output
-        out = np.zeros((self.nodes, self.iterations), dtype=int)
+        out = np.zeros((self.nodes, self.iterations), dtype=float)
         # And a positive control network too.
-        control = np.zeros((self.nodes, self.iterations), dtype=int)
+        control = np.zeros((self.nodes, self.iterations), dtype=float)
         # And a totally random, negative control
-        neg_control = np.zeros((self.nodes, self.iterations), dtype=int)
+        neg_control = np.zeros((self.nodes, self.iterations), dtype=float)
         # Create an initial state for this population
         for i in range(0, self.nodes):
             for j in range(0, self.iterations):
@@ -111,7 +111,7 @@ class EvolvedNetwork:
                             break
                         else:
                             for k in range(0, self.nodes):
-                                out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise)*out[k, j], 0)) # heaviside function creates extinction
+                                out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise)*out[k, j], 0.0)) # heaviside function creates extinction
                                 control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise) * out[k, j])
             # Now create .txt outputs for these networks.
             file_network = np.savetxt(
