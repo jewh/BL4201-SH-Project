@@ -89,11 +89,11 @@ class EvolvedNetwork:
     def evolve_system(self):
         jacobian = self.create_network()
         # Create a 'population' vector describing the population at time t, which will be our output
-        out = np.zeros((self.iterations, self.nodes), dtype=int)
+        out = np.zeros((self.iterations, self.nodes), dtype=float)
         # And a positive control network too.
-        control = np.zeros((self.iterations, self.nodes), dtype=int)
+        control = np.zeros((self.iterations, self.nodes), dtype=float)
         # And a totally random, negative control
-        neg_control = np.zeros((self.iterations, self.nodes), dtype=int)
+        neg_control = np.zeros((self.iterations, self.nodes), dtype=float)
         # Create an initial state for this population
         for i in range(0, self.iterations):
             for j in range(0, self.nodes):
