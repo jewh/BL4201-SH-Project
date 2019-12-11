@@ -115,15 +115,15 @@ class EvolvedNetwork:
                                 control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise) * out[k, j])
             # Now create .txt outputs for these networks.
             file_network = np.savetxt(
-                f"~/Users/james/Documents/ExtinctionNetworks/Outputs - Extinction Networks\{self.kind} network structure with n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
+                f"Outputs - Extinction Networks\{self.kind} network structure with n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
                 jacobian)
             file_out = np.savetxt(
-                f"~/Users/james/Documents/ExtinctionNetworks/Outputs - Extinction Networks\{self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt", out)
+                f"Outputs - Extinction Networks\{self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt", out)
             file_control = np.savetxt(
-                f"~/Users/james/Documents/ExtinctionNetworks/Outputs - Extinction Networks\control {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
+                f"Outputs - Extinction Networks\control {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
                 control)
             file_neg_control = np.savetxt(
-                f"~/Users/james/Documents/ExtinctionNetworks/Outputs - Extinction Networks\ negative control {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
+                f"Outputs - Extinction Networks\ negative control {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
                 neg_control)
         else:
             print('ERROR: {} is not a valid kind of network!'.format(self.kind))
