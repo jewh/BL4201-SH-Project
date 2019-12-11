@@ -37,7 +37,7 @@ def non_unitary_heaviside(x1, x2):
 
 #Create a function that bounds interactions by a number, for some global bound (positive int)
 
-bound = 1000
+bound = 1000.0
 
 def bound(x):
     if abs(x) < bound:
