@@ -24,7 +24,7 @@ def noisy_interaction(interaction, abundance, noise_factor):
     abundance = float(abundance)
     interaction = float(interaction)
     sd = rd.random()*float(noise_factor)/(abundance + 1)
-    out = int(rd.normalvariate(interaction, sd))
+    out = rd.normalvariate(interaction, sd)
     return out
 
 
@@ -37,11 +37,11 @@ def non_unitary_heaviside(x1, x2):
 
 #Create a function that bounds interactions by a number, for some global bound (positive int)
 
-pos_real_bound = 1000.0
+pos_real_bound = 1000
 
 def bound(x):
     if abs(x) < pos_real_bound:
-        return x
+        return int(x)
     elif x < pos_real_bound:
         return -1*pos_real_bound
     elif x > pos_real_bound:
@@ -111,7 +111,7 @@ class EvolvedNetwork:
                             break
                         else:
                             for k in range(0, self.nodes):
-                                out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise)*out[k, j], 0.0)) # heaviside function creates extinction
+                                out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise)*out[k, j], 0)) # heaviside function creates extinction
                                 control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise) * out[k, j])
             # Now create .txt outputs for these networks.
             file_network = np.savetxt(
