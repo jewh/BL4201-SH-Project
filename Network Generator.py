@@ -111,8 +111,8 @@ class EvolvedNetwork:
                             break
                         else:
                             for k in range(0, self.nodes):
-                                out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, j], out[k, i], self.noise)*out[k, i], 0.0)) # heaviside function creates extinction
-                                control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, j], out[k, i], self.noise) * out[k, i])
+                                out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise)*out[i, k], 0.0)) # heaviside function creates extinction
+                                control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise) * out[i, k])
             # Now create .txt outputs for these networks.
             file_network = np.savetxt(
                 f"Outputs - Extinction Networks {self.kind} network structure with n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
