@@ -89,11 +89,11 @@ class EvolvedNetwork:
     def evolve_system(self):
         jacobian = self.create_network()
         # Create a 'population' vector describing the population at time t, which will be our output
-        out = np.zeros((self.iterations, self.nodes), dtype=float)
+        out = np.zeros((self.iterations, self.nodes), dtype=int)
         # And a positive control network too.
-        control = np.zeros((self.iterations, self.nodes), dtype=float)
+        control = np.zeros((self.iterations, self.nodes), dtype=int)
         # And a totally random, negative control
-        neg_control = np.zeros((self.iterations, self.nodes), dtype=float)
+        neg_control = np.zeros((self.iterations, self.nodes), dtype=int)
         # Create an initial state for this population
         for i in range(0, self.iterations):
             for j in range(0, self.nodes):
@@ -106,13 +106,13 @@ class EvolvedNetwork:
                 t = t + 1
                 for i in range(0, self.iterations):
                     for j in range(0, self.nodes):
-                        neg_control[i, j] = rd.uniform(-1*pos_real_bound, pos_real_bound+1.0) # creates a random negative control network for testing
+                        neg_control[i, j] = int(rd.uniform(-1*pos_real_bound, pos_real_bound+1.0)) # creates a random negative control network for testing
                         if out[i, j] == 0:  # This keeps nodes extinct
                             break
                         else:
                             for k in range(0, self.nodes):
-                                out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise)*out[i, k], 0.0)) # heaviside function creates extinction
-                                control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise) * out[i, k])
+                                out[i, j] = int(bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise)*out[i, k], 0.0))) # heaviside function creates extinction
+                                control[i, j] = int(bound(control[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise) * out[i, k]))
             # Now create .txt outputs for these networks.
             file_network = np.savetxt(
                 f"Outputs - Extinction Networks {self.kind} network structure with n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
