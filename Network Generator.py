@@ -24,7 +24,7 @@ def noisy_interaction(interaction, abundance, noise_factor):
     abundance = float(abundance)
     interaction = float(interaction)
     sd = rd.random()*float(noise_factor)/(abundance + 1)
-    out = rd.normalvariate(interaction, sd)
+    out = int(rd.normalvariate(interaction, sd))
     return out
 
 
@@ -89,11 +89,11 @@ class EvolvedNetwork:
     def evolve_system(self):
         jacobian = self.create_network()
         # Create a 'population' vector describing the population at time t, which will be our output
-        out = np.zeros((self.nodes, self.iterations), dtype=float)
+        out = np.zeros((self.nodes, self.iterations), dtype=int)
         # And a positive control network too.
-        control = np.zeros((self.nodes, self.iterations), dtype=float)
+        control = np.zeros((self.nodes, self.iterations), dtype=int)
         # And a totally random, negative control
-        neg_control = np.zeros((self.nodes, self.iterations), dtype=float)
+        neg_control = np.zeros((self.nodes, self.iterations), dtype=int)
         # Create an initial state for this population
         for i in range(0, self.nodes):
             for j in range(0, self.iterations):
@@ -113,6 +113,7 @@ class EvolvedNetwork:
                             for k in range(0, self.nodes):
                                 out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise)*out[k, j], 0.0)) # heaviside function creates extinction
                                 control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise) * out[k, j])
+                                print("------------it works fam-------------")
             # Now create .txt outputs for these networks.
             file_network = np.savetxt(
                 f"Outputs - Extinction Networks\{self.kind} network structure with n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
