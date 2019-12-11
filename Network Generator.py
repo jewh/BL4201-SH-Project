@@ -5,7 +5,11 @@ import numpy as np
 import scipy as sc # Need scipy for the random graph generation
 import matplotlib.pyplot as plt
 import networkx as nx
-import timeit as time
+from timeit import default_timer
+
+#Time to execute given by:
+
+start = default_timer()
 
 rd.seed(0)
 
@@ -30,6 +34,19 @@ def non_unitary_heaviside(x1, x2):
     else:
         out = x1
     return out
+
+#Create a function that bounds interactions by a number, for some global bound (positive int)
+
+bound = 1000
+
+def bound(x):
+    if abs(x) < bound:
+        return x
+    elif x < bound:
+        return -bound
+    elif x > bound:
+        return bound
+
 
 
 # Now create class of network equillibrium states, for given network types.
@@ -89,24 +106,24 @@ class EvolvedNetwork:
                 t = t + 1
                 for i in range(0, self.nodes):
                     for j in range(0, self.iterations):
-                        neg_control[i, j] = rd.uniform(0, 100) # creates a random negative control network for testing
+                        neg_control[i, j] = rd.uniform(-bound, bound) # creates a random negative control network for testing
                         if out[i, j] == 0:  # This keeps nodes extinct
                             break
                         else:
                             for k in range(0, self.nodes):
-                                out[i, j] = non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise)*out[k, j], 0.0) # heaviside function creates extinction
-                                control[i, j] = control[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise) * out[k, j]
+                                out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise)*out[k, j], 0.0)) # heaviside function creates extinction
+                                control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, i], out[k, j], self.noise) * out[k, j])
             # Now create .txt outputs for these networks.
             file_network = np.savetxt(
-                f"Outputs - Extinction Networks\{self.kind} network structure with n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
+                f"~/Users/james/Documents/ExtinctionNetworks/Outputs - Extinction Networks\{self.kind} network structure with n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
                 jacobian)
             file_out = np.savetxt(
-                f"Outputs - Extinction Networks\{self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt", out)
+                f"~/Users/james/Documents/ExtinctionNetworks/Outputs - Extinction Networks\{self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt", out)
             file_control = np.savetxt(
-                f"Outputs - Extinction Networks\control {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
+                f"~/Users/james/Documents/ExtinctionNetworks/Outputs - Extinction Networks\control {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
                 control)
             file_neg_control = np.savetxt(
-                f"Outputs - Extinction Networks\ negative control {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
+                f"~/Users/james/Documents/ExtinctionNetworks/Outputs - Extinction Networks\ negative control {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
                 neg_control)
         else:
             print('ERROR: {} is not a valid kind of network!'.format(self.kind))
@@ -117,6 +134,12 @@ number_networks = 10
 for i in range(0, number_networks):
     out = EvolvedNetwork('extinction', 6, 15, 4.0, 1000, i)
     out.evolve_system()
+    print("#")
+end = default_timer()
+print("----%s----"%(end-start))
+
+
+
 
 
 
