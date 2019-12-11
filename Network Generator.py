@@ -37,15 +37,15 @@ def non_unitary_heaviside(x1, x2):
 
 #Create a function that bounds interactions by a number, for some global bound (positive int)
 
-bound = 1000.0
+pos_real_bound = 1000.0
 
 def bound(x):
-    if abs(x) < bound:
+    if abs(x) < pos_real_bound:
         return x
-    elif x < bound:
-        return -bound
-    elif x > bound:
-        return bound
+    elif x < pos_real_bound:
+        return -1*pos_real_bound
+    elif x > pos_real_bound:
+        return pos_real_bound
 
 
 
@@ -106,7 +106,7 @@ class EvolvedNetwork:
                 t = t + 1
                 for i in range(0, self.nodes):
                     for j in range(0, self.iterations):
-                        neg_control[i, j] = rd.uniform(-bound, bound) # creates a random negative control network for testing
+                        neg_control[i, j] = rd.uniform(-1*pos_real_bound, pos_real_bound+1.0) # creates a random negative control network for testing
                         if out[i, j] == 0:  # This keeps nodes extinct
                             break
                         else:
