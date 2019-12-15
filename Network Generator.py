@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import networkx as nx
 from timeit import default_timer
 
-#Time to execute given by:
+# Time to execute given by:
 
 start = default_timer()
 
@@ -27,7 +27,6 @@ def noisy_interaction(interaction, abundance, noise_factor):
     out = rd.normalvariate(interaction, sd)
     return out
 
-
 def non_unitary_heaviside(x1, x2):
     if x1 == 0 or x1 < 0:
         out = x2
@@ -35,9 +34,12 @@ def non_unitary_heaviside(x1, x2):
         out = x1
     return out
 
-#Create a function that bounds interactions by a number, for some global bound (positive int)
+# Create a function that bounds interactions by a number, for some global bound (positive int)
+# Note this is necessary for us to represent the outputs in a decimal format readable by Banjo!
+
 
 pos_real_bound = 1000.0
+
 
 def bound(x):
     if abs(x) < pos_real_bound:
@@ -47,7 +49,16 @@ def bound(x):
     elif x > pos_real_bound:
         return pos_real_bound
 
+# Create a function that returns a network structure for a given Jacobian matrix and outputs the result as an image file
 
+
+def draw_network(jacobian, nodes, links, noise, alpha, beta, instance):
+        g = nx.from_numpy_matrix(jacobian, create_using=nx.DiGraph())
+        plt.figure()
+        nx.draw(g, with_labels=True, font_weight='bold', pos=nx.circular_layout(g))
+        plt.suptitle("Network on {0} nodes, with {1} links".format(nodes, links))
+        plt.title("Interactions a beta distribution where alpha = {0}, beta = {1}".format(alpha, beta))
+        plt.savefig("Network structure with n{0} L{1} N{2} in{3}.png".format(nodes, links, noise, instance))
 
 # Now create class of network equillibrium states, for given network types.
 
@@ -77,23 +88,17 @@ class EvolvedNetwork:
 
     # ***This function appears to work as intended, maybe need to alter the distribution of interaction strengths though***
     # Now create function for visualising the network structure
-    def true_network(self):
-        jacobian = self.create_network()
-        g = nx.from_numpy_matrix(jacobian, create_using=nx.DiGraph())
-        plt.subplot(111)
-        nx.draw(g, with_labels=True, font_weight='bold', pos=nx.circular_layout(g))
-        plt.suptitle("Network on {0} nodes, with {1} links".format(self.nodes, self.links))
-        plt.title("With interactions given by a beta distribution where alpha = {0}, beta = {1}".format(self.alpha, self.beta))
-        plt.show()
 
     def evolve_system(self):
+        # Establish a network structure, and save this to an image file (.png)
         jacobian = self.create_network()
+        draw_network(jacobian, self.nodes, self.links, self.noise, self.alpha, self.beta, self.instance)
         # Create a 'population' vector describing the population at time t, which will be our output
-        out = np.zeros((self.iterations, self.nodes), dtype=float)
+        out = np.zeros((self.iterations, self.nodes))
         # And a positive control network too.
-        control = np.zeros((self.iterations, self.nodes), dtype=float)
+        control = np.zeros((self.iterations, self.nodes))
         # And a totally random, negative control
-        neg_control = np.zeros((self.iterations, self.nodes), dtype=float)
+        neg_control = np.zeros((self.iterations, self.nodes))
         # Create an initial state for this population
         for i in range(0, self.iterations):
             for j in range(0, self.nodes):
@@ -106,32 +111,34 @@ class EvolvedNetwork:
                 t = t + 1
                 for i in range(0, self.iterations):
                     for j in range(0, self.nodes):
-                        neg_control[i, j] = int(rd.uniform(-1*pos_real_bound, pos_real_bound+1.0)) # creates a random negative control network for testing
+                        neg_control[i, j] = rd.uniform(-1*pos_real_bound, pos_real_bound+1.0) # creates a random negative control network for testing
                         if out[i, j] == 0:  # This keeps nodes extinct
                             break
                         else:
                             for k in range(0, self.nodes):
                                 out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise)*out[i, k], 0.0)) # heaviside function creates extinction
-                                out[i, j] = round(out[i, j])
+                                out[i, j] = out[i, j]
                                 control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise) * out[i, k])
-                                control[i, j] = round(control[i, j])
+                                control[i, j] = control[i, j]
             # Now create .txt outputs for these networks.
+            # Specify the decimal place precision to 6 using fmt = '%.6f'
             file_network = np.savetxt(
                 f"Outputs - Extinction Networks {self.kind} network structure with n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
-                jacobian)
+                jacobian, fmt='%.6f')
             file_out = np.savetxt(
-                f"Outputs - Extinction Networks {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt", out)
+                f"Outputs - Extinction Networks {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt", out, fmt = '%.6f')
             file_control = np.savetxt(
                 f"Outputs - Extinction Networks control {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
-                control)
+                control, fmt='%.6f')
             file_neg_control = np.savetxt(
                 f"Outputs - Extinction Networks negative control {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
-                neg_control)
+                neg_control, fmt='%.6f')
         else:
             print('ERROR: {} is not a valid kind of network!'.format(self.kind))
 
 
-#Now generate data for analysis
+# Now generate data for analysis
+
 number_networks = 10
 for i in range(0, number_networks):
     out = EvolvedNetwork('extinction', 6, 15, 4.0, 1000, i)
