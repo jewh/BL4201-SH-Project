@@ -1,5 +1,5 @@
 
-#
+
 import random as rd
 import numpy as np
 import scipy as sc # Need scipy for the random graph generation
@@ -60,6 +60,15 @@ def draw_network(jacobian, nodes, links, noise, alpha, beta, instance):
         plt.title("Interactions a beta distribution where alpha = {0}, beta = {1}".format(alpha, beta))
         plt.savefig("Network structure with n{0} L{1} N{2} in{3}.png".format(nodes, links, noise, instance))
 
+# Create a function for saving .txt files of arrays, to trim down the code
+# Specify the decimal place precision to 6 using fmt = '%.6f'
+
+def save_txt(array, kind, nodes, links, noise, iterations, instance, marker):
+    file_network = np.savetxt(
+        f"Outputs - {marker} {kind} network structure with n{nodes} L{links} N{noise} I{iterations} in{instance}.txt",
+        array, fmt='%.6f', delimiter = '    ')
+    return file_network
+
 # Now create class of network equillibrium states, for given network types.
 
 
@@ -93,6 +102,7 @@ class EvolvedNetwork:
         # Establish a network structure, and save this to an image file (.png)
         jacobian = self.create_network()
         draw_network(jacobian, self.nodes, self.links, self.noise, self.alpha, self.beta, self.instance)
+        save_txt(jacobian, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'network structure')
         # Create a 'population' vector describing the population at time t, which will be our output
         out = np.zeros((self.iterations, self.nodes))
         # And a positive control network too.
@@ -121,18 +131,14 @@ class EvolvedNetwork:
                                 control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise) * out[i, k])
                                 control[i, j] = control[i, j]
             # Now create .txt outputs for these networks.
-            # Specify the decimal place precision to 6 using fmt = '%.6f'
-            file_network = np.savetxt(
-                f"Outputs - Extinction Networks {self.kind} network structure with n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
-                jacobian, fmt='%.6f')
-            file_out = np.savetxt(
-                f"Outputs - Extinction Networks {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt", out, fmt = '%.6f')
-            file_control = np.savetxt(
-                f"Outputs - Extinction Networks control {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
-                control, fmt='%.6f')
-            file_neg_control = np.savetxt(
-                f"Outputs - Extinction Networks negative control {self.kind} network n{self.nodes} L{self.links} N{self.noise} I{self.iterations} in{self.instance}.txt",
-                neg_control, fmt='%.6f')
+            save_txt(out, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Output')
+            save_txt(control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Positive Control')
+            save_txt(neg_control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Neg Control')
+
+        elif self.kind == 'hidden layer':
+            # Create a time series of gene expression data
+            print('placeholder')
+
         else:
             print('ERROR: {} is not a valid kind of network!'.format(self.kind))
 
@@ -143,7 +149,7 @@ number_networks = 10
 for i in range(0, number_networks):
     out = EvolvedNetwork('extinction', 6, 15, 4.0, 1000, i)
     out.evolve_system()
-    print("#")
+    print("{0}%".format(100.0*(i+1)/float(number_networks)))
 end = default_timer()
 print("----%s----"%(end-start))
 
