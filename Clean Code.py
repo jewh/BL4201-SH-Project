@@ -46,5 +46,10 @@ def bound(x):
         return pos_real_bound
 # Above function returns x if abs(x) =< bound, and returns the bound else
 
+def gene_time_series(genes, proteins):
+    gene_to_protein = np.zeros((genes, proteins), dtype=float)
+    for i in range(0, genes):
+        for j in range(0, proteins):
+
 
 

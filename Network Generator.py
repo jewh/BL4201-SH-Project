@@ -1,5 +1,4 @@
 
-
 import random as rd
 import numpy as np
 import scipy as sc # Need scipy for the random graph generation
@@ -23,7 +22,7 @@ rd.seed(0)
 def noisy_interaction(interaction, abundance, noise_factor):
     abundance = float(abundance)
     interaction = float(interaction)
-    sd = rd.random()*float(noise_factor)/(abundance + 1)
+    sd = rd.random( ) *float(noise_factor ) /(abundance + 1)
     out = rd.normalvariate(interaction, sd)
     return out
 
@@ -45,7 +44,7 @@ def bound(x):
     if abs(x) < pos_real_bound:
         return x
     elif x < pos_real_bound:
-        return -1*pos_real_bound
+        return - 1 *pos_real_bound
     elif x > pos_real_bound:
         return pos_real_bound
 
@@ -65,19 +64,20 @@ def draw_network(jacobian, nodes, links, noise, alpha, beta, instance):
 
 def save_txt(array, kind, nodes, links, noise, iterations, instance, marker):
     file_network = np.savetxt(
-        f"Outputs - {marker} {kind} network structure with n{nodes} L{links} N{noise} I{iterations} in{instance}.txt",
-        array, fmt='%.6f', delimiter = '    ')
+        f"{marker} {kind} network with n{nodes} L{links} N{int(noise)} I{iterations} in{instance}.txt",
+        array, fmt='%.6f', delimiter='\t')
     return file_network
+
 
 # Now create class of network equillibrium states, for given network types.
 
 
-class EvolvedNetwork:
+class ExtinctionNetwork:
 
     # set network parameters as input parameters
 
-    def __init__(self, kind, nodes, links, noise, iterations, instance, time=1000, alpha=5.0, beta=5.0):
-        self.kind = kind   # kind of network - e.g. one with layers, one with extinction, etc.
+    def __init__(self, kind, nodes, links, noise, iterations, instance, time=1000, alpha=5.0, beta=5.0, number_replicates=10):
+        self.kind = kind   # kind of data - time-series or static.
         self.nodes = nodes  # number of network nodes
         self.links = links  # number of network edges
         self.noise = noise  # noise of interactions
@@ -86,17 +86,19 @@ class EvolvedNetwork:
         self.beta = beta      # describes network weight distribution
         self.time = time      # length of system evolution
         self.instance = instance # creates different instances, hopefully to create different networks for same parameters
+        self.number_replicates = number_replicates # Number of replicate datasets generated for a given network structure
 
     def create_network(self):
         # Generate a random graph with n nodes and m directed edges:
         network = nx.gnm_random_graph(self.nodes, self.links, directed=True)
         for (i, j) in network.edges():
-            network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta)*(-1)**(rd.choice((1, 2)))
+            network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta ) *(-1 )* *(rd.choice((1, 2)))
         jacobian = nx.to_numpy_matrix(network, dtype=float)
         return jacobian
 
     # ***This function appears to work as intended, maybe need to alter the distribution of interaction strengths though***
     # Now create function for visualising the network structure
+
 
     def evolve_system(self):
         # Establish a network structure, and save this to an image file (.png)
@@ -109,38 +111,43 @@ class EvolvedNetwork:
         control = np.zeros((self.iterations, self.nodes))
         # And a totally random, negative control
         neg_control = np.zeros((self.iterations, self.nodes))
-        # Create an initial state for this population
-        for i in range(0, self.iterations):
-            for j in range(0, self.nodes):
-                out[i, j] = 10.0  # Set to an arbitrary constant value for now, can change later, just want reproducibility
-                control[i, j] = 10.0
-        t = 0  # create time counter
-        # Now evolve the system, for different kinds of network:
-        if self.kind == 'extinction':
-            while t < self.time:
-                t = t + 1
-                for i in range(0, self.iterations):
-                    for j in range(0, self.nodes):
-                        neg_control[i, j] = rd.uniform(-1*pos_real_bound, pos_real_bound+1.0) # creates a random negative control network for testing
-                        if out[i, j] == 0:  # This keeps nodes extinct
-                            break
-                        else:
-                            for k in range(0, self.nodes):
-                                out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise)*out[i, k], 0.0)) # heaviside function creates extinction
-                                out[i, j] = out[i, j]
-                                control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise) * out[i, k])
-                                control[i, j] = control[i, j]
-            # Now create .txt outputs for these networks.
-            save_txt(out, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Output')
-            save_txt(control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Positive Control')
-            save_txt(neg_control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Neg Control')
-
-        elif self.kind == 'hidden layer':
-            # Create a time series of gene expression data
-            print('placeholder')
+        # Now as we desire a number of replicate datasets for each network, place all of below beneath a ticker:
+        for iterate in range(0, self.number_replicates):
+            # Create an initial state for this population
+            for i in range(0, self.iterations):
+                for j in range(0, self.nodes):
+                    out[i, j] = 10.0  # Set to an arbitrary constant value for now, can change later, just want reproducibility
+                    control[i, j] = 10.0
+            t = 0  # create time counter
+            # Now evolve the system, for different kinds of network:
+            if self.kind == 'static':
+                while t < self.time:
+                    t = t + 1
+                    for i in range(0, self.iterations):
+                        for j in range(0, self.nodes):
+                            neg_control[i, j] = rd.uniform(-1 * pos_real_bound, pos_real_bound + 1.0) # creates a random negative control network for testing
+                            if out[i, j] == 0:
+                                break # This keeps nodes extinct
+                            else:
+                                for k in range(0, self.nodes):
+                                    out[i, j] = bound(non_unitary_heaviside
+                                        (out[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise ) * out[i, k], 0.0)) # heaviside function creates extinction
+                                    out[i, j] = out[i, j]
+                                    control[i, j] = bound \
+                                        (control[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise) * out
+                                            [i, k])
+                                    control[i, j] = control[i, j]
+                # Now create .txt outputs for these networks.
+                save_txt(out, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Output')
+                save_txt(control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Positive Control')
+                save_txt(neg_control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Neg Control')
 
         else:
             print('ERROR: {} is not a valid kind of network!'.format(self.kind))
+
+
+
+
 
 
 # Now generate data for analysis
@@ -149,13 +156,6 @@ number_networks = 10
 for i in range(0, number_networks):
     out = EvolvedNetwork('extinction', 6, 15, 4.0, 1000, i)
     out.evolve_system()
-    print("{0}%".format(100.0*(i+1)/float(number_networks)))
+    print("{0}%".format(100. 0 *( i +1 ) /float(number_networks)))
 end = default_timer()
-print("----%s----"%(end-start))
-
-
-
-
-
-
-
+print("----%s---- " %(en d -start))
