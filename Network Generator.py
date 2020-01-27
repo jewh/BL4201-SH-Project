@@ -92,7 +92,7 @@ class ExtinctionNetwork:
         # Generate a random graph with n nodes and m directed edges:
         network = nx.gnm_random_graph(self.nodes, self.links, directed=True)
         for (i, j) in network.edges():
-            network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta ) *(-1 )* *(rd.choice((1, 2)))
+            network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta ) *(-1 )**(rd.choice((1, 2)))
         jacobian = nx.to_numpy_matrix(network, dtype=float)
         return jacobian
 
@@ -138,9 +138,9 @@ class ExtinctionNetwork:
                                             [i, k])
                                     control[i, j] = control[i, j]
                 # Now create .txt outputs for these networks.
-                save_txt(out, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Output')
-                save_txt(control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Positive Control')
-                save_txt(neg_control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Neg Control')
+                save_txt(out, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Output {0}'.format(iterate))
+                save_txt(control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Positive Control {0}'.format(iterate))
+                save_txt(neg_control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Neg Control {0}'.format(iterate))
 
         else:
             print('ERROR: {} is not a valid kind of network!'.format(self.kind))
@@ -154,8 +154,8 @@ class ExtinctionNetwork:
 
 number_networks = 10
 for i in range(0, number_networks):
-    out = EvolvedNetwork('extinction', 6, 15, 4.0, 1000, i)
+    print("{0}%".format(100.0*i/float(number_networks)))
+    out = ExtinctionNetwork('static', 6, 15, 4.0, 1000, i)
     out.evolve_system()
-    print("{0}%".format(100. 0 *( i +1 ) /float(number_networks)))
 end = default_timer()
-print("----%s---- " %(en d -start))
+print("----%s---- " %(end - start))
