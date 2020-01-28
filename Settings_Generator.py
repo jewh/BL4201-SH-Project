@@ -1,6 +1,6 @@
 # Meant to generate Banjo settings files by reading the file names in a given directory
 
-import fileinput
+
 import os as os
 from os.path import isfile, join
 import shutil
@@ -30,11 +30,15 @@ def replace_space(file):
     return out
 
 
+# Specify the location of the template settings file using this variable:
+
+template = "/Users/James/settings.txt"
+
 # First open the banjo settings template file, make a copy, edit that copy
-# filein = open("C:/Users/User/Documents/Banjo/settings.txt", 'r')
+
 for i in files:
-    filein = open("C:/Users/User/Documents/Banjo/settings.txt", 'r')
-    shutil.copy2("C:/Users/User/Documents/Banjo/settings.txt",
+    filein = open(template, 'r')
+    shutil.copy2(template,
                  "{0}/settings/settings{1}.txt".format(current_directory, remove_txt(i)))  # This works
     fileout = open("{0}/settings/settings{1}.txt".format(current_directory, remove_txt(i)), 'w')
     for line in filein:
