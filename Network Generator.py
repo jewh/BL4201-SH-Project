@@ -5,6 +5,7 @@ import scipy as sc # Need scipy for the random graph generation
 import matplotlib.pyplot as plt
 import networkx as nx
 from timeit import default_timer
+from tqdm import tqdm
 
 # Time to execute given by:
 
@@ -92,7 +93,7 @@ class ExtinctionNetwork:
         # Generate a random graph with n nodes and m directed edges:
         network = nx.gnm_random_graph(self.nodes, self.links, directed=True)
         for (i, j) in network.edges():
-            network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta ) *(-1 )**(rd.choice((1, 2)))
+            network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta ) *(-1 )**(rd.choice((1, 2))) # Does this actually specify only values on the zeros?
         jacobian = nx.to_numpy_matrix(network, dtype=float)
         return jacobian
 
@@ -106,18 +107,13 @@ class ExtinctionNetwork:
         draw_network(jacobian, self.nodes, self.links, self.noise, self.alpha, self.beta, self.instance)
         save_txt(jacobian, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'network structure')
         # Create a 'population' vector describing the population at time t, which will be our output
-        out = np.zeros((self.iterations, self.nodes))
+        out = np.full((self.iterations, self.nodes), 10.0) #10.0 being default initial state
         # And a positive control network too.
-        control = np.zeros((self.iterations, self.nodes))
+        control = np.full((self.iterations, self.nodes), 10.0) # 10.0 being default intial state
         # And a totally random, negative control
         neg_control = np.zeros((self.iterations, self.nodes))
         # Now as we desire a number of replicate datasets for each network, place all of below beneath a ticker:
-        for iterate in range(0, self.number_replicates):
-            # Create an initial state for this population
-            for i in range(0, self.iterations):
-                for j in range(0, self.nodes):
-                    out[i, j] = 10.0  # Set to an arbitrary constant value for now, can change later, just want reproducibility
-                    control[i, j] = 10.0
+        for iterate in tqdm(range(0, self.number_replicates)):
             t = 0  # create time counter
             # Now evolve the system, for different kinds of network:
             if self.kind == 'static':
@@ -142,8 +138,8 @@ class ExtinctionNetwork:
                 save_txt(control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Positive Control {0}'.format(iterate))
                 save_txt(neg_control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Neg Control {0}'.format(iterate))
 
-        else:
-            print('ERROR: {} is not a valid kind of network!'.format(self.kind))
+            else:
+                print('ERROR: {} is not a valid kind of network!'.format(self.kind))
 
 
 
