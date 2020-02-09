@@ -25,7 +25,6 @@ def output_to_array(path, nvariables): # returns a list
                 for number, jine in enumerate(file_lines[num+3:len(file_lines)-1]):
                     #print(jine)
                     if jine == '\n':
-                        # print("breaking")
                         break
                     else:
                         start = jine.find('Influence score for   (') + len('Influence score for   (') #returns position of the desired tag
@@ -46,45 +45,46 @@ def output_to_array(path, nvariables): # returns a list
 
 def structural_recovery(actual, solved):
     score = 0
+    false_positives = 0
+    false_negatives = 0
     max = actual.shape[0]
     for i in range(0, max):
         for j in range(0, max):
             score = score + abs(actual[i][j])  # This adds up actual matrix weights
             if actual[i][j] != 0 and solved[i][j] == 0:
                 score += -(abs(actual[i][j]))
+                false_negatives += 1
             elif actual[i][j] == 0 and solved[i][j] != 0:
                 score += -(abs(solved[i][j]))
+                false_positives += 1
                 # adding influence scores, assuming influence scores represent a confidence in the link being there
-    return score
-
+    out = np.array(score, false_positives, false_negatives)
+    return out
 
 # The functions appear to work! Now how to save them
 # Now want to run the function over a directory of data
 
 # Also define a function that returns the output matrix as a graph
-
-def remove_txt(path):
-    file = os.path.basename(path)
-    out = os.path.splitext(file)
-    final = out[0].replace(' ', '_')
-    return final
-
 def draw_network(matrix, directory, file, instance):
     g = nx.from_numpy_matrix(matrix, create_using=nx.DiGraph())
     plt.figure()
     nx.draw(g, with_labels=True, font_weight='bold', pos=nx.circular_layout(g))
-    plt.savefig("{0}/SolvedStructures/{1} structure in{2}.png".format(directory, remove_txt(file), instance))
-
+    plt.savefig("{0}/SolvedStructures/{1} structure in{2}.png".format(directory, file, instance))
 
 current_directory = os.path.dirname(os.path.realpath(__file__))
 
 files = [f for f in os.listdir(current_directory) if isfile(join(current_directory, f))]
 files.remove("Network_evaluator.py")
 
+structure = open("network structure static network with n6 L15 N4 I1000 in0.txt", 'r')
+output_file = open("{0}/summaries/summary.txt".format(current_directory), "w+")
 for file in files:
     out = output_to_array("{0}/{1}".format(current_directory, file), 6) # used six variables for all the networks involved
     for i in range(0, len(out)-1):
         draw_network(out[i], current_directory, file, i)
-
-
-
+        for j in range(0, 3):
+            output_file.write("{0}\t".format(structural_recovery(out[i], structure)[j]))
+            print("memes")
+        output_file.write("{0}\n".format(file))
+output_file.close()
+structure.close()
