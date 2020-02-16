@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 # Time to execute given by:
 
-start = default_timer()
+# start = default_timer()
 
 rd.seed(0)
 
@@ -23,11 +23,11 @@ rd.seed(0)
 def noisy_interaction(interaction, abundance, noise_factor):
     abundance = float(abundance)
     interaction = float(interaction)
-    sd = rd.random() *float(noise_factor)/(abundance + 1)
-    out = rd.normalvariate(interaction, sd)
+    sd = float(noise_factor)/(abundance**2 + 1)
+    out = rd.gauss(interaction, sd)
     return out
 
-def non_unitary_heaviside(x1, x2):
+def non_unitary_heaviside(x1, x2=0.0):
     if x1 == 0 or x1 < 0:
         out = x2
     else:
@@ -42,7 +42,7 @@ pos_real_bound = 100.0
 
 
 def bound(x):
-    if abs(x) < pos_real_bound:
+    if abs(x) <= pos_real_bound:
         return x
     elif x < pos_real_bound:
         return -1*pos_real_bound
@@ -61,12 +61,13 @@ def draw_network(jacobian, nodes, links, noise, alpha, beta, instance):
         plt.title("Interactions a beta distribution where alpha = {0}, beta = {1}".format(alpha, beta))
         plt.savefig("Network structure with n{0} L{1} N{2} in{3}.png".format(nodes, links, noise, instance))
 
+
 # Create a function for saving .txt files of arrays, to trim down the code
 # Specify the decimal place precision to 6 using fmt = '%.6f'
 
 def save_txt(array, kind, nodes, links, noise, iterations, instance, marker):
     file_network = np.savetxt(
-        f"{marker}_{kind}_network_with_n{nodes}_L{links}_N{int(noise)}_I{iterations}_in{instance}.txt",
+        f"{marker} {kind} network with n{nodes} L{links} N{int(noise)} I{iterations} in{instance}.txt",
         array, fmt='%.6f', delimiter='\t')
     return file_network
 
@@ -107,38 +108,62 @@ class ExtinctionNetwork:
         jacobian = self.create_network()
         draw_network(jacobian, self.nodes, self.links, self.noise, self.alpha, self.beta, self.instance)
         save_txt(jacobian, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'network structure')
-        # Create a 'population' vector describing the population at time t, which will be our output
-        out = np.full((self.iterations, self.nodes), 10.0) #10.0 being default initial state
-        # And a positive control network too.
-        control = np.full((self.iterations, self.nodes), 10.0) # 10.0 being default intial state
-        # And a totally random, negative control
-        neg_control = np.zeros((self.iterations, self.nodes))
         # Now as we desire a number of replicate datasets for each network, place all of below beneath a ticker:
-        for iterate in tqdm(range(0, self.number_replicates)):
-            t = 0  # create time counter
-            # Now evolve the system, for different kinds of network:
-            if self.kind == 'static':
+        if self.kind == 'static_extinction':
+            for iterate in tqdm(range(0, self.number_replicates)):
+                t = 0  # create time counter
+                out = np.full((self.iterations, self.nodes), 10.0)  # 10.0 being default initial state
+                # And a positive control network too.
+                control = np.full((self.iterations, self.nodes), 10.0)  # 10.0 being default intial state
+                # And a totally random, negative control
+                neg_control = np.zeros((self.iterations, self.nodes))
+                # Now as we desire a number of replicate datasets for each network, place all of below beneath a ticker:
+                # Now evolve the system, for different kinds of network:
                 while t < self.time:
-                    t = t + 1
+                    t += 1
                     for i in range(0, self.iterations):
                         for j in range(0, self.nodes):
                             neg_control[i, j] = rd.uniform(-1 * pos_real_bound, pos_real_bound + 1.0) # creates a random negative control network for testing
-                            if round(out[i, j], 6) == 0: # This keeps nodes extinct, rounding to 6 prevents species recovering from extinction in the output file
+                            if out[i, j] == 0: # This keeps nodes extinct
                                 break
                             else:
                                 for k in range(0, self.nodes):
-                                    out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise) * out[i, k], 0.0))  # heaviside function creates extinction
-                                    out[i, j] = out[i, j]
-                                    control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise) * out
-                                            [i, k])
-                                    control[i, j] = control[i, j]
+                                    out[i, j] = bound(non_unitary_heaviside(out[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise) * out[i, k]))  # heaviside function creates extinction
+                                    control[i, j] = bound(control[i, j] + noisy_interaction(jacobian[k, j], out[i, k], self.noise)*out[i, k])
                 # Now create .txt outputs for these networks.
                 save_txt(out, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Output {0}'.format(iterate))
                 save_txt(control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Positive Control {0}'.format(iterate))
                 save_txt(neg_control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Neg Control {0}'.format(iterate))
 
-            else:
-                print('ERROR: {} is not a valid kind of network!'.format(self.kind))
+        elif self.kind == 'gene_reg':
+            pass
+        elif self.kind == 'dynamic_extinction':
+            # Still generate a nodes*iterates sized array, but with time increasing as go down the file
+            for iterate in tqdm(range(0, self.number_replicates)):
+                out = np.full((self.iterations, self.nodes), 10.0)  # 10.0 being default initial state
+                # And a positive control network too.
+                control = np.full((self.iterations, self.nodes), 10.0)  # 10.0 being default intial state
+                # And a totally random, negative control
+                neg_control = np.zeros((self.iterations, self.nodes))
+                # Now as we desire a number of replicate datasets for each network, place all of below beneath a ticker:
+                # Now evolve the system, for different kinds of network:
+                for i in range(1, self.iterations):
+                    for j in range(0, self.nodes):
+                        neg_control[i-1, j] = rd.uniform(-1 * pos_real_bound, pos_real_bound + 1.0) # creates a random negative control network for testing
+                        if out[i-1, j] == 0: # This keeps nodes extinct
+                            out[i, j] = 0
+                        else:
+                            sum_out = 0.0
+                            for k in range(0, self.nodes): # cycle over all other species and add up interactions
+                                sum_out += noisy_interaction(jacobian[k, j], out[i-1, k], self.noise) * out[i-1, k]
+                                out[i, j] = bound(non_unitary_heaviside(out[i-1, j] + sum_out))  # heaviside function creates extinction
+                                control[i, j] = bound(control[i-1, j] + sum_out)
+                # Now create .txt outputs for these networks.
+                save_txt(out, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Output {0}'.format(iterate))
+                save_txt(control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Positive Control {0}'.format(iterate))
+                save_txt(neg_control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Neg Control {0}'.format(iterate))
+        else:
+            print('ERROR: {} is not a valid kind of network!'.format(self.kind))
 
 
 
@@ -151,7 +176,7 @@ class ExtinctionNetwork:
 number_networks = 10
 for i in range(0, number_networks):
     print("{0}%".format(100.0*i/float(number_networks)))
-    out = ExtinctionNetwork('static', 6, 15, 4.0, 1000, i)
+    out = ExtinctionNetwork('dynamic_extinction', 6, 15, 10.0, 1000, i)
     out.evolve_system()
-end = default_timer()
-print("----%s---- " %(end - start))
+# end = default_timer()
+# print("----%s---- " %(end - start))
