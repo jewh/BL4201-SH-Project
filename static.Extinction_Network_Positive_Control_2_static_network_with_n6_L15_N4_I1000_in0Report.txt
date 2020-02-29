@@ -1,0 +1,386 @@
+-----------------------------------------------------------------------------
+- Banjo                        Bayesian Network Inference with Java Objects -
+- Release 2.2.0                                                 15 Apr 2008 -
+- Licensed from Duke University                                             -
+- Copyright (c) 2005-08 by Alexander J. Hartemink                           -
+- All rights reserved                                                       -
+-----------------------------------------------------------------------------
+- Project:                                                Extinction Networks
+- User:                                                                 James
+- Dataset:  Extinction_Network_Positive_Control_2_static_network_with_n6_L15_N4_I1000_in0
+- Notes:   Extinction networks with synthetic data for James H BL4200 project
+-----------------------------------------------------------------------------
+- Settings file:                                                             
+-----------------------------------------------------------------------------
+- Input directory:      /Users/james/documents/extinction_networks/instance_0
+- Observations file:  Extinction Network Positive Control 2 static network with n6 L15 N4 I1000 in0.txt
+- Observation count:                                                     1000
+- Number of variables:                                                      6
+- Discretization policy:                                                   q3
+- Exceptions to the discretization policy:                               none
+-----------------------------------------------------------------------------
+- Initial structure file:                                                    
+- 'Must be present' edges file:                                              
+- 'Must not be present' edges file:                                          
+- Min. Markov lag:                                                          0
+- Max. Markov lag:                                                          0
+- Max. parent count:                                                        5
+- Equivalent sample size for Dirichlet parameter prior:                  6000
+-----------------------------------------------------------------------------
+- Searcher:                                                 SearcherSimAnneal
+- Proposer:                                           ProposerRandomLocalMove
+- Evaluator:                                        defaulted to EvaluatorBDe
+- Decider:                                                  DeciderMetropolis
+-----------------------------------------------------------------------------
+- Pre-compute logGamma:                                                   yes
+- Cache:                                                           fastLevel2
+- Cycle checking method:                                   Depth-first Search
+-----------------------------------------------------------------------------
+- Initial temperature:                                                   1000
+- Cooling factor:                                                         0.9
+- Reannealing temperature:                                                500
+- Max. accepted networks before cooling:                                 1000
+- Max. proposed networks before cooling:                                10000
+- Min. accepted networks before reannealing:                              200
+-----------------------------------------------------------------------------
+- Output directory:  /Users/james/documents/extinction_networks/instance_0/BanjoOutputs
+- Report file:  static.Extinction_Network_Positive_Control_2_static_network_with_n6_L15_N4_I1000_in0Report.txt
+- Number of best networks tracked:                                          1
+- Max. time:                                                            1.0 h
+- Max. proposed networks:                                               32768
+- Max. restarts:                                                           20
+- Min. networks before checking:                                           10
+- Screen reporting interval:                                           10.0 s
+- File reporting interval:                                              1.0 m
+-----------------------------------------------------------------------------
+- Compute influence scores:                                               yes
+- Compute consensus graph:                                                yes
+- Create consensus graph as HTML:                                         yes
+- Create 'dot' output:                                                    yes
+- Location of 'dot':                                             not supplied
+-----------------------------------------------------------------------------
+- XML output directory:  /Users/james/documents/extinction_networks/instance_0/BanjoOutputs
+- XML Report file:                                                           
+- XML settings to export:                                                    
+- XML parser:                             org.apache.xerces.parsers.SAXParser
+- Banjo XML format version:                                               1.0
+-----------------------------------------------------------------------------
+- Seed for starting search:                                     1580226306357
+-----------------------------------------------------------------------------
+- Number of threads:                                                        1
+-----------------------------------------------------------------------------
+- Warnings:                                                                  
+-----------------------------------------------------------------------------
+(Alert: the path to dot is not specified) To automatically create dot output, the path where dot is located on your system needs to be specified in the setting 'fullPathToDotExecutable'.
+-----------------------------------------------------------------------------
+
+Memory info before starting the search: Banjo is using 6 mb of memory
+Prep. time used: 807.0 ms
+Beginning to search: expect a status report every 10.0 s
+
+
+
+-----------------------------------------------------------------------------
+- Final report                                           Best network overall
+-----------------------------------------------------------------------------
+
+
+Network score: -6381.5575, first found at iteration 16139
+6
+0 3 1 2 4
+1 2 2 4
+2 1 4
+3 5 0 1 2 4 5
+4 0
+5 2 1 4
+
+
+-----------------------------------------------------------------------------
+- Search Statistics                                                          
+-----------------------------------------------------------------------------
+
+Statistics collected in searcher 'SearcherSimAnneal':
+  Number of networks examined: 32770
+  Total time used: 1.19 s
+  High score: -6381.5575, first found at iteration 16139
+  Number of re-anneals: 0
+
+Statistics collected in proposer 'ProposerRandomLocalMove':
+  Additions -- proposed:    11990
+  Deletions -- proposed:    10522
+  Reversals -- proposed:    10257
+
+Statistics collected in cycle checker 'CycleCheckerCheckThenApply':
+  Additions -- considered:  11990,  acyclic:  9621
+  Deletions -- no cyclicity test necessary
+  Reversals -- considered:  10257,  acyclic:  9442
+
+Statistics collected in evaluator 'EvaluatorBDe':
+  Scores computed:          1332
+  Scores (cache)            placed         fetched        
+      with 0 parents:       6              13530          
+      with 1 parents:       30             17950          
+      with 2 parents:       60             5987           
+      with 3 parents:       1042           300            
+      with 4 parents:       178            28             
+      with 5 parents:       16             2              
+
+Statistics collected in decider 'DeciderMetropolis':
+  Additions -- considered:  9621,  better score:  9470,  other accepted:  151
+  Deletions -- considered:  10522,  better score:  167,  other accepted:  9448
+  Reversals -- considered:  9442,  better score:  5175,  other accepted:  4249
+  Average permissivity:     0.937
+
+Memory info after completing the search: Banjo is using 10 mb of memory
+
+
+Network score: -6381.5575, found by thread 1
+6
+0 3 1 2 4
+1 2 2 4
+2 1 4
+3 5 0 1 2 4 5
+4 0
+5 2 1 4
+
+-----------------------------------------------------------------------------
+- Post-processing                                            Influence scores
+-----------------------------------------------------------------------------
+
+Influence score for   (4,0) ->   (0,0)   -.0294
+Influence score for   (2,0) ->   (0,0)   -.0479
+Influence score for   (1,0) ->   (0,0)   .0427
+Influence score for   (4,0) ->   (1,0)   -.0534
+Influence score for   (2,0) ->   (1,0)   -.0831
+Influence score for   (4,0) ->   (2,0)   .0703
+Influence score for   (5,0) ->   (3,0)   -.0013
+Influence score for   (4,0) ->   (3,0)   .0535
+Influence score for   (2,0) ->   (3,0)   .1170
+Influence score for   (1,0) ->   (3,0)   -.0777
+Influence score for   (0,0) ->   (3,0)   -.0281
+Influence score for   (4,0) ->   (5,0)   .0000
+Influence score for   (1,0) ->   (5,0)   .0000
+
+-----------------------------------------------------------------------------
+- Post-processing                                  DOT graphics format output
+-----------------------------------------------------------------------------
+
+digraph abstract { 
+
+label = "Banjo Version 2.2.0\nHigh scoring network, score: -6381.5575\nProject: Extinction Networks\nUser: James\nDataset: Extinction_Network_Positive_Control_2_static_network_with_n6_L15_N4_I1000_in0"; 
+labeljust="l"; 
+
+
+    1->0;
+    2->0;
+    4->0;
+    2->1;
+    4->1;
+    4->2;
+    0->3;
+    1->3;
+    2->3;
+    4->3;
+    5->3;
+    1->5;
+    4->5;
+}
+
+
+-----------------------------------------------------------------------------
+(Final Checkpoint, after post-processing) A final check revealed the following issues that were encountered during Banjo's execution:
+-----------------------------------------------------------------------------
+('dot' execution) The attempted execution of 'dot' to create the graphics file '/Users/james/documents/extinction_networks/instance_0/BanjoOutputs/top.graph.2020.01.28.15.45.06.jpg' did not succeed. No output has been produced.
+
+-----------------------------------------------------------------------------
+- Banjo                        Bayesian Network Inference with Java Objects -
+- Release 2.2.0                                                 15 Apr 2008 -
+- Licensed from Duke University                                             -
+- Copyright (c) 2005-08 by Alexander J. Hartemink                           -
+- All rights reserved                                                       -
+-----------------------------------------------------------------------------
+- Project:                                                Extinction Networks
+- User:                                                                 James
+- Dataset:  Extinction_Network_Positive_Control_2_static_network_with_n6_L15_N4_I1000_in0
+- Notes:   Extinction networks with synthetic data for James H BL4200 project
+-----------------------------------------------------------------------------
+- Settings file:                                                             
+-----------------------------------------------------------------------------
+- Input directory:      /Users/james/documents/extinction_networks/instance_0
+- Observations file:  Extinction Network Positive Control 2 static network with n6 L15 N4 I1000 in0.txt
+- Observation count:                                                     1000
+- Number of variables:                                                      6
+- Discretization policy:                                                   q3
+- Exceptions to the discretization policy:                               none
+-----------------------------------------------------------------------------
+- Initial structure file:                                                    
+- 'Must be present' edges file:                                              
+- 'Must not be present' edges file:                                          
+- Min. Markov lag:                                                          0
+- Max. Markov lag:                                                          0
+- Max. parent count:                                                        5
+- Equivalent sample size for Dirichlet parameter prior:                  6000
+-----------------------------------------------------------------------------
+- Searcher:                                                 SearcherSimAnneal
+- Proposer:                                           ProposerRandomLocalMove
+- Evaluator:                                        defaulted to EvaluatorBDe
+- Decider:                                                  DeciderMetropolis
+-----------------------------------------------------------------------------
+- Pre-compute logGamma:                                                   yes
+- Cache:                                                           fastLevel2
+- Cycle checking method:                                   Depth-first Search
+-----------------------------------------------------------------------------
+- Initial temperature:                                                   1000
+- Cooling factor:                                                         0.9
+- Reannealing temperature:                                                500
+- Max. accepted networks before cooling:                                 1000
+- Max. proposed networks before cooling:                                10000
+- Min. accepted networks before reannealing:                              200
+-----------------------------------------------------------------------------
+- Output directory:  /Users/james/documents/extinction_networks/instance_0/BanjoOutputs
+- Report file:  static.Extinction_Network_Positive_Control_2_static_network_with_n6_L15_N4_I1000_in0Report.txt
+- Number of best networks tracked:                                          1
+- Max. time:                                                            1.0 h
+- Max. proposed networks:                                               32768
+- Max. restarts:                                                           20
+- Min. networks before checking:                                           10
+- Screen reporting interval:                                           10.0 s
+- File reporting interval:                                              1.0 m
+-----------------------------------------------------------------------------
+- Compute influence scores:                                               yes
+- Compute consensus graph:                                                yes
+- Create consensus graph as HTML:                                         yes
+- Create 'dot' output:                                                    yes
+- Location of 'dot':                                             not supplied
+-----------------------------------------------------------------------------
+- XML output directory:  /Users/james/documents/extinction_networks/instance_0/BanjoOutputs
+- XML Report file:                                                           
+- XML settings to export:                                                    
+- XML parser:                             org.apache.xerces.parsers.SAXParser
+- Banjo XML format version:                                               1.0
+-----------------------------------------------------------------------------
+- Seed for starting search:                                     1580226603441
+-----------------------------------------------------------------------------
+- Number of threads:                                                        1
+-----------------------------------------------------------------------------
+- Warnings:                                                                  
+-----------------------------------------------------------------------------
+(Alert: the path to dot is not specified) To automatically create dot output, the path where dot is located on your system needs to be specified in the setting 'fullPathToDotExecutable'.
+-----------------------------------------------------------------------------
+
+Memory info before starting the search: Banjo is using 6 mb of memory
+Prep. time used: 783.0 ms
+Beginning to search: expect a status report every 10.0 s
+
+
+
+-----------------------------------------------------------------------------
+- Final report                                           Best network overall
+-----------------------------------------------------------------------------
+
+
+Network score: -6377.7709, first found at iteration 32763
+6
+0 1 3
+1 4 0 2 3 4
+2 2 0 3
+3 1 5
+4 4 0 2 3 5
+5 0
+
+
+-----------------------------------------------------------------------------
+- Search Statistics                                                          
+-----------------------------------------------------------------------------
+
+Statistics collected in searcher 'SearcherSimAnneal':
+  Number of networks examined: 32770
+  Total time used: 1.14 s
+  High score: -6377.7709, first found at iteration 32763
+  Number of re-anneals: 0
+
+Statistics collected in proposer 'ProposerRandomLocalMove':
+  Additions -- proposed:    11944
+  Deletions -- proposed:    10475
+  Reversals -- proposed:    10350
+
+Statistics collected in cycle checker 'CycleCheckerCheckThenApply':
+  Additions -- considered:  11944,  acyclic:  9551
+  Deletions -- no cyclicity test necessary
+  Reversals -- considered:  10350,  acyclic:  9610
+
+Statistics collected in evaluator 'EvaluatorBDe':
+  Scores computed:          1332
+  Scores (cache)            placed         fetched        
+      with 0 parents:       6              13606          
+      with 1 parents:       30             18038          
+      with 2 parents:       60             6017           
+      with 3 parents:       1042           328            
+      with 4 parents:       181            26             
+      with 5 parents:       13             1              
+
+Statistics collected in decider 'DeciderMetropolis':
+  Additions -- considered:  9551,  better score:  9414,  other accepted:  135
+  Deletions -- considered:  10475,  better score:  142,  other accepted:  9396
+  Reversals -- considered:  9610,  better score:  5317,  other accepted:  4275
+  Average permissivity:     0.935
+
+Memory info after completing the search: Banjo is using 10 mb of memory
+
+
+Network score: -6377.7709, found by thread 1
+6
+0 1 3
+1 4 0 2 3 4
+2 2 0 3
+3 1 5
+4 4 0 2 3 5
+5 0
+
+-----------------------------------------------------------------------------
+- Post-processing                                            Influence scores
+-----------------------------------------------------------------------------
+
+Influence score for   (3,0) ->   (0,0)   -.0709
+Influence score for   (4,0) ->   (1,0)   -.0425
+Influence score for   (3,0) ->   (1,0)   -.1651
+Influence score for   (2,0) ->   (1,0)   -.1377
+Influence score for   (0,0) ->   (1,0)   .0287
+Influence score for   (3,0) ->   (2,0)   .0985
+Influence score for   (0,0) ->   (2,0)   -.0469
+Influence score for   (5,0) ->   (3,0)   .0000
+Influence score for   (5,0) ->   (4,0)   -.0197
+Influence score for   (3,0) ->   (4,0)   .1078
+Influence score for   (2,0) ->   (4,0)   .1330
+Influence score for   (0,0) ->   (4,0)   -.0261
+
+-----------------------------------------------------------------------------
+- Post-processing                                  DOT graphics format output
+-----------------------------------------------------------------------------
+
+digraph abstract { 
+
+label = "Banjo Version 2.2.0\nHigh scoring network, score: -6377.7709\nProject: Extinction Networks\nUser: James\nDataset: Extinction_Network_Positive_Control_2_static_network_with_n6_L15_N4_I1000_in0"; 
+labeljust="l"; 
+
+
+    3->0;
+    0->1;
+    2->1;
+    3->1;
+    4->1;
+    0->2;
+    3->2;
+    5->3;
+    0->4;
+    2->4;
+    3->4;
+    5->4;
+}
+
+
+-----------------------------------------------------------------------------
+(Final Checkpoint, after post-processing) A final check revealed the following issues that were encountered during Banjo's execution:
+-----------------------------------------------------------------------------
+('dot' execution) The attempted execution of 'dot' to create the graphics file '/Users/james/documents/extinction_networks/instance_0/BanjoOutputs/top.graph.2020.01.28.15.50.03.jpg' did not succeed. No output has been produced.
+

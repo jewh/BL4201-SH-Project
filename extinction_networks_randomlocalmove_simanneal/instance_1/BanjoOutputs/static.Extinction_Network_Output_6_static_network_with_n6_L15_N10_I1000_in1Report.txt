@@ -1,0 +1,3518 @@
+-----------------------------------------------------------------------------
+- Banjo                        Bayesian Network Inference with Java Objects -
+- Release 2.2.0                                                 15 Apr 2008 -
+- Licensed from Duke University                                             -
+- Copyright (c) 2005-08 by Alexander J. Hartemink                           -
+- All rights reserved                                                       -
+-----------------------------------------------------------------------------
+- Project:                                                Extinction Networks
+- User:                                                                 James
+- Dataset:  Extinction_Network_Output_6_static_network_with_n6_L15_N10_I1000_in1
+- Notes:   Extinction networks with synthetic data for James H BL4200 project
+-----------------------------------------------------------------------------
+- Settings file:                                                             
+-----------------------------------------------------------------------------
+- Input directory:      /Users/james/documents/extinction_networks/instance_1
+- Observations file:  Extinction Network Output 6 static network with n6 L15 N10 I1000 in1.txt
+- Observation count:                                                     1000
+- Number of variables:                                                      6
+- Discretization policy:                                                   q3
+- Exceptions to the discretization policy:                               none
+-----------------------------------------------------------------------------
+- Initial structure file:                                                    
+- 'Must be present' edges file:                                              
+- 'Must not be present' edges file:                                          
+- Min. Markov lag:                                                          0
+- Max. Markov lag:                                                          0
+- Max. parent count:                                                        5
+- Equivalent sample size for Dirichlet parameter prior:                  6000
+-----------------------------------------------------------------------------
+- Searcher:                                                 SearcherSimAnneal
+- Proposer:                                           ProposerRandomLocalMove
+- Evaluator:                                        defaulted to EvaluatorBDe
+- Decider:                                                  DeciderMetropolis
+-----------------------------------------------------------------------------
+- Pre-compute logGamma:                                                   yes
+- Cache:                                                           fastLevel2
+- Cycle checking method:                                   Depth-first Search
+-----------------------------------------------------------------------------
+- Initial temperature:                                                   1000
+- Cooling factor:                                                         0.9
+- Reannealing temperature:                                                500
+- Max. accepted networks before cooling:                                 1000
+- Max. proposed networks before cooling:                                10000
+- Min. accepted networks before reannealing:                              200
+-----------------------------------------------------------------------------
+- Output directory:  /Users/james/documents/extinction_networks/instance_1/BanjoOutputs
+- Report file:  static.Extinction_Network_Output_6_static_network_with_n6_L15_N10_I1000_in1Report.txt
+- Number of best networks tracked:                                         50
+- Best networks are:                                             nonIdentical
+- Max. time:                                                            1.0 h
+- Max. proposed networks:                                               32768
+- Max. restarts:                                                           20
+- Min. networks before checking:                                           30
+- Screen reporting interval:                                           10.0 s
+- File reporting interval:                                              1.0 m
+-----------------------------------------------------------------------------
+- Compute influence scores:                                               yes
+- Compute consensus graph:                                                yes
+- Create consensus graph as HTML:                                         yes
+- Create 'dot' output:                                                     no
+- Location of 'dot':                                             not supplied
+-----------------------------------------------------------------------------
+- XML output directory:  /Users/james/documents/extinction_networks/instance_1/BanjoOutputs
+- XML Report file:                                                           
+- XML settings to export:                                                    
+- XML parser:                             org.apache.xerces.parsers.SAXParser
+- Banjo XML format version:                                               1.0
+-----------------------------------------------------------------------------
+- Seed for starting search:                                     1581885518973
+-----------------------------------------------------------------------------
+- Number of threads:                                                        1
+-----------------------------------------------------------------------------
+
+Memory info before starting the search: Banjo is using 6 mb of memory
+Prep. time used: 980.0 ms
+Beginning to search: expect a status report every 10.0 s
+
+
+
+-----------------------------------------------------------------------------
+- Final report                                          Best networks overall
+-----------------------------------------------------------------------------
+
+
+Network #1, score: -5193.0310, first found at iteration 32419
+6
+0 4 1 2 4 5
+1 0
+2 0
+3 1 2
+4 2 2 3
+5 3 2 3 4
+
+Network #2, score: -5193.0310, first found at iteration 32420
+6
+0 4 1 2 4 5
+1 0
+2 0
+3 1 2
+4 2 2 3
+5 4 1 2 3 4
+
+Network #3, score: -5193.0310, first found at iteration 32418
+6
+0 4 1 2 4 5
+1 0
+2 0
+3 1 2
+4 3 2 3 5
+5 2 2 3
+
+Network #4, score: -5193.0310, first found at iteration 32439
+6
+0 3 2 4 5
+1 2 0 5
+2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #5, score: -5193.0310, first found at iteration 32440
+6
+0 3 2 4 5
+1 3 0 2 5
+2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #6, score: -5199.1467, first found at iteration 30886
+6
+0 0
+1 0
+2 1 4
+3 4 0 2 4 5
+4 0
+5 3 0 2 4
+
+Network #7, score: -5201.0614, first found at iteration 30882
+6
+0 0
+1 1 2
+2 0
+3 3 2 4 5
+4 1 2
+5 3 0 2 4
+
+Network #8, score: -5201.0614, first found at iteration 30883
+6
+0 0
+1 1 2
+2 1 4
+3 3 2 4 5
+4 0
+5 3 0 2 4
+
+Network #9, score: -5201.0614, first found at iteration 30885
+6
+0 0
+1 0
+2 1 4
+3 3 2 4 5
+4 0
+5 3 0 2 4
+
+Network #10, score: -5201.0614, first found at iteration 31766
+6
+0 0
+1 1 0
+2 1 4
+3 4 1 2 4 5
+4 1 1
+5 3 0 2 4
+
+Network #11, score: -5202.1852, first found at iteration 14075
+6
+0 0
+1 3 0 2 4
+2 2 0 5
+3 1 5
+4 4 0 2 3 5
+5 1 0
+
+Network #12, score: -5205.5882, first found at iteration 25264
+6
+0 0
+1 0
+2 2 0 3
+3 0
+4 4 0 2 3 5
+5 3 0 1 2
+
+Network #13, score: -5205.5882, first found at iteration 25266
+6
+0 1 1
+1 0
+2 2 0 3
+3 0
+4 4 0 2 3 5
+5 3 0 1 2
+
+Network #14, score: -5205.8183, first found at iteration 32431
+6
+0 3 1 2 5
+1 1 5
+2 0
+3 1 2
+4 2 2 3
+5 3 2 3 4
+
+Network #15, score: -5205.8183, first found at iteration 32432
+6
+0 3 1 2 5
+1 1 5
+2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #16, score: -5205.8183, first found at iteration 32434
+6
+0 2 2 5
+1 2 0 5
+2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #17, score: -5205.9320, first found at iteration 32410
+6
+0 3 2 4 5
+1 1 5
+2 1 3
+3 0
+4 3 2 3 5
+5 1 2
+
+Network #18, score: -5205.9320, first found at iteration 32402
+6
+0 3 2 4 5
+1 2 4 5
+2 1 3
+3 0
+4 3 2 3 5
+5 1 2
+
+Network #19, score: -5205.9320, first found at iteration 32389
+6
+0 4 1 2 4 5
+1 1 5
+2 0
+3 1 2
+4 4 1 2 3 5
+5 1 2
+
+Network #20, score: -5205.9320, first found at iteration 32414
+6
+0 3 2 4 5
+1 0
+2 0
+3 1 2
+4 3 2 3 5
+5 1 2
+
+Network #21, score: -5205.9320, first found at iteration 32411
+6
+0 3 2 4 5
+1 0
+2 1 3
+3 0
+4 3 2 3 5
+5 1 2
+
+Network #22, score: -5205.9320, first found at iteration 32416
+6
+0 4 1 2 4 5
+1 0
+2 0
+3 1 2
+4 3 2 3 5
+5 1 2
+
+Network #23, score: -5205.9320, first found at iteration 32387
+6
+0 4 1 2 4 5
+1 0
+2 0
+3 1 2
+4 4 1 2 3 5
+5 1 2
+
+Network #24, score: -5206.6114, first found at iteration 27776
+6
+0 4 1 3 4 5
+1 1 3
+2 4 1 3 4 5
+3 0
+4 3 1 3 5
+5 1 3
+
+Network #25, score: -5206.6114, first found at iteration 27772
+6
+0 4 1 3 4 5
+1 2 3 4
+2 4 1 3 4 5
+3 0
+4 2 3 5
+5 1 3
+
+Network #26, score: -5207.1020, first found at iteration 25257
+6
+0 0
+1 1 5
+2 1 3
+3 0
+4 4 0 2 3 5
+5 2 0 2
+
+Network #27, score: -5207.1020, first found at iteration 25259
+6
+0 0
+1 0
+2 1 3
+3 0
+4 4 0 2 3 5
+5 3 0 1 2
+
+Network #28, score: -5209.9927, first found at iteration 32422
+6
+0 3 1 4 5
+1 0
+2 0
+3 1 2
+4 2 2 3
+5 3 2 3 4
+
+Network #29, score: -5209.9927, first found at iteration 32421
+6
+0 3 1 4 5
+1 0
+2 0
+3 1 2
+4 2 2 3
+5 4 1 2 3 4
+
+Network #30, score: -5212.0734, first found at iteration 32386
+6
+0 4 1 2 4 5
+1 0
+2 0
+3 0
+4 4 1 2 3 5
+5 1 2
+
+Network #31, score: -5212.9328, first found at iteration 11125
+6
+0 3 2 3 5
+1 2 0 4
+2 1 5
+3 0
+4 3 2 3 5
+5 1 3
+
+Network #32, score: -5212.9328, first found at iteration 11126
+6
+0 4 1 2 3 5
+1 1 4
+2 1 5
+3 0
+4 3 2 3 5
+5 1 3
+
+Network #33, score: -5212.9328, first found at iteration 11130
+6
+0 4 1 2 3 5
+1 0
+2 1 5
+3 0
+4 3 2 3 5
+5 1 3
+
+Network #34, score: -5212.9328, first found at iteration 11124
+6
+0 3 2 3 5
+1 1 0
+2 1 5
+3 0
+4 4 1 2 3 5
+5 1 3
+
+Network #35, score: -5213.2433, first found at iteration 25255
+6
+0 0
+1 1 5
+2 0
+3 0
+4 4 0 2 3 5
+5 2 0 2
+
+Network #36, score: -5213.2433, first found at iteration 25254
+6
+0 0
+1 1 5
+2 0
+3 1 1
+4 4 0 2 3 5
+5 2 0 2
+
+Network #37, score: -5214.9100, first found at iteration 31506
+6
+0 3 1 2 5
+1 1 2
+2 1 5
+3 0
+4 3 2 3 5
+5 1 3
+
+Network #38, score: -5215.6638, first found at iteration 30308
+6
+0 1 3
+1 1 5
+2 3 0 1 5
+3 1 5
+4 4 1 2 3 5
+5 0
+
+Network #39, score: -5215.7660, first found at iteration 14069
+6
+0 0
+1 2 0 4
+2 1 5
+3 0
+4 4 0 2 3 5
+5 2 0 3
+
+Network #40, score: -5215.7660, first found at iteration 14071
+6
+0 0
+1 3 0 2 4
+2 1 5
+3 0
+4 4 0 2 3 5
+5 2 0 3
+
+Network #41, score: -5216.1293, first found at iteration 27790
+6
+0 2 4 5
+1 3 0 3 4
+2 4 0 1 4 5
+3 1 5
+4 2 3 5
+5 0
+
+Network #42, score: -5216.1293, first found at iteration 27784
+6
+0 3 1 4 5
+1 2 3 4
+2 4 0 1 4 5
+3 1 5
+4 2 3 5
+5 0
+
+Network #43, score: -5216.1959, first found at iteration 30307
+6
+0 0
+1 1 5
+2 3 0 1 5
+3 1 5
+4 4 1 2 3 5
+5 0
+
+Network #44, score: -5216.1959, first found at iteration 30304
+6
+0 0
+1 2 0 5
+2 2 0 5
+3 1 5
+4 4 1 2 3 5
+5 0
+
+Network #45, score: -5216.1959, first found at iteration 30305
+6
+0 0
+1 2 0 5
+2 3 0 1 5
+3 1 5
+4 4 1 2 3 5
+5 0
+
+Network #46, score: -5216.7421, first found at iteration 11133
+6
+0 4 1 2 3 5
+1 0
+2 0
+3 1 2
+4 3 2 3 5
+5 1 2
+
+Network #47, score: -5217.1584, first found at iteration 14073
+6
+0 0
+1 3 0 2 4
+2 1 5
+3 1 5
+4 4 0 2 3 5
+5 1 0
+
+Network #48, score: -5217.1584, first found at iteration 14067
+6
+0 1 5
+1 2 0 4
+2 1 5
+3 0
+4 4 0 2 3 5
+5 1 3
+
+Network #49, score: -5217.2368, first found at iteration 7224
+6
+0 0
+1 0
+2 0
+3 2 4 5
+4 3 0 2 5
+5 2 0 2
+
+Network #50, score: -5217.2368, first found at iteration 7221
+6
+0 1 1
+1 0
+2 0
+3 2 4 5
+4 3 0 2 5
+5 2 0 2
+
+
+-----------------------------------------------------------------------------
+- Search Statistics                                                          
+-----------------------------------------------------------------------------
+
+Statistics collected in searcher 'SearcherSimAnneal':
+  Number of networks examined: 32790
+  Total time used: 911.0 ms
+  High score: -5193.0310, first found at iteration 32419
+  Number of re-anneals: 0
+
+Statistics collected in proposer 'ProposerRandomLocalMove':
+  Additions -- proposed:    11699
+  Deletions -- proposed:    10450
+  Reversals -- proposed:    10640
+
+Statistics collected in cycle checker 'CycleCheckerCheckThenApply':
+  Additions -- considered:  11699,  acyclic:  9384
+  Deletions -- no cyclicity test necessary
+  Reversals -- considered:  10640,  acyclic:  9834
+
+Statistics collected in evaluator 'EvaluatorBDe':
+  Scores computed:          1296
+  Scores (cache)            placed         fetched        
+      with 0 parents:       6              13511          
+      with 1 parents:       30             17399          
+      with 2 parents:       60             5947           
+      with 3 parents:       1022           344            
+      with 4 parents:       167            21             
+      with 5 parents:       11             0              
+
+Statistics collected in decider 'DeciderMetropolis':
+  Additions -- considered:  9384,  better score:  9089,  other accepted:  295
+  Deletions -- considered:  10450,  better score:  2088,  other accepted:  7294
+  Reversals -- considered:  9834,  better score:  6169,  other accepted:  3615
+  Average permissivity:     0.909
+
+No Statistics collected in equivalence checker 'EquivalenceCheckerSkip'.
+
+Memory info after completing the search: Banjo is using 10 mb of memory
+
+
+Network #1, score: -5193.0310, found by thread 1
+6
+0 4 1 2 4 5
+1 0
+2 0
+3 1 2
+4 2 2 3
+5 3 2 3 4
+
+Network #2, score: -5193.0310, found by thread 1
+6
+0 4 1 2 4 5
+1 0
+2 0
+3 1 2
+4 2 2 3
+5 4 1 2 3 4
+
+Network #3, score: -5193.0310, found by thread 1
+6
+0 4 1 2 4 5
+1 0
+2 0
+3 1 2
+4 3 2 3 5
+5 2 2 3
+
+Network #4, score: -5193.0310, found by thread 1
+6
+0 3 2 4 5
+1 2 0 5
+2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #5, score: -5193.0310, found by thread 1
+6
+0 3 2 4 5
+1 3 0 2 5
+2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #6, score: -5199.1467, found by thread 1
+6
+0 0
+1 0
+2 1 4
+3 4 0 2 4 5
+4 0
+5 3 0 2 4
+
+Network #7, score: -5201.0614, found by thread 1
+6
+0 0
+1 1 2
+2 0
+3 3 2 4 5
+4 1 2
+5 3 0 2 4
+
+Network #8, score: -5201.0614, found by thread 1
+6
+0 0
+1 1 2
+2 1 4
+3 3 2 4 5
+4 0
+5 3 0 2 4
+
+Network #9, score: -5201.0614, found by thread 1
+6
+0 0
+1 0
+2 1 4
+3 3 2 4 5
+4 0
+5 3 0 2 4
+
+Network #10, score: -5201.0614, found by thread 1
+6
+0 0
+1 1 0
+2 1 4
+3 4 1 2 4 5
+4 1 1
+5 3 0 2 4
+
+Network #11, score: -5202.1852, found by thread 1
+6
+0 0
+1 3 0 2 4
+2 2 0 5
+3 1 5
+4 4 0 2 3 5
+5 1 0
+
+Network #12, score: -5205.5882, found by thread 1
+6
+0 0
+1 0
+2 2 0 3
+3 0
+4 4 0 2 3 5
+5 3 0 1 2
+
+Network #13, score: -5205.5882, found by thread 1
+6
+0 1 1
+1 0
+2 2 0 3
+3 0
+4 4 0 2 3 5
+5 3 0 1 2
+
+Network #14, score: -5205.8183, found by thread 1
+6
+0 3 1 2 5
+1 1 5
+2 0
+3 1 2
+4 2 2 3
+5 3 2 3 4
+
+Network #15, score: -5205.8183, found by thread 1
+6
+0 3 1 2 5
+1 1 5
+2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #16, score: -5205.8183, found by thread 1
+6
+0 2 2 5
+1 2 0 5
+2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #17, score: -5205.9320, found by thread 1
+6
+0 3 2 4 5
+1 1 5
+2 1 3
+3 0
+4 3 2 3 5
+5 1 2
+
+Network #18, score: -5205.9320, found by thread 1
+6
+0 3 2 4 5
+1 2 4 5
+2 1 3
+3 0
+4 3 2 3 5
+5 1 2
+
+Network #19, score: -5205.9320, found by thread 1
+6
+0 4 1 2 4 5
+1 1 5
+2 0
+3 1 2
+4 4 1 2 3 5
+5 1 2
+
+Network #20, score: -5205.9320, found by thread 1
+6
+0 3 2 4 5
+1 0
+2 0
+3 1 2
+4 3 2 3 5
+5 1 2
+
+Network #21, score: -5205.9320, found by thread 1
+6
+0 3 2 4 5
+1 0
+2 1 3
+3 0
+4 3 2 3 5
+5 1 2
+
+Network #22, score: -5205.9320, found by thread 1
+6
+0 4 1 2 4 5
+1 0
+2 0
+3 1 2
+4 3 2 3 5
+5 1 2
+
+Network #23, score: -5205.9320, found by thread 1
+6
+0 4 1 2 4 5
+1 0
+2 0
+3 1 2
+4 4 1 2 3 5
+5 1 2
+
+Network #24, score: -5206.6114, found by thread 1
+6
+0 4 1 3 4 5
+1 1 3
+2 4 1 3 4 5
+3 0
+4 3 1 3 5
+5 1 3
+
+Network #25, score: -5206.6114, found by thread 1
+6
+0 4 1 3 4 5
+1 2 3 4
+2 4 1 3 4 5
+3 0
+4 2 3 5
+5 1 3
+
+Network #26, score: -5207.1020, found by thread 1
+6
+0 0
+1 1 5
+2 1 3
+3 0
+4 4 0 2 3 5
+5 2 0 2
+
+Network #27, score: -5207.1020, found by thread 1
+6
+0 0
+1 0
+2 1 3
+3 0
+4 4 0 2 3 5
+5 3 0 1 2
+
+Network #28, score: -5209.9927, found by thread 1
+6
+0 3 1 4 5
+1 0
+2 0
+3 1 2
+4 2 2 3
+5 3 2 3 4
+
+Network #29, score: -5209.9927, found by thread 1
+6
+0 3 1 4 5
+1 0
+2 0
+3 1 2
+4 2 2 3
+5 4 1 2 3 4
+
+Network #30, score: -5212.0734, found by thread 1
+6
+0 4 1 2 4 5
+1 0
+2 0
+3 0
+4 4 1 2 3 5
+5 1 2
+
+Network #31, score: -5212.9328, found by thread 1
+6
+0 3 2 3 5
+1 2 0 4
+2 1 5
+3 0
+4 3 2 3 5
+5 1 3
+
+Network #32, score: -5212.9328, found by thread 1
+6
+0 4 1 2 3 5
+1 1 4
+2 1 5
+3 0
+4 3 2 3 5
+5 1 3
+
+Network #33, score: -5212.9328, found by thread 1
+6
+0 4 1 2 3 5
+1 0
+2 1 5
+3 0
+4 3 2 3 5
+5 1 3
+
+Network #34, score: -5212.9328, found by thread 1
+6
+0 3 2 3 5
+1 1 0
+2 1 5
+3 0
+4 4 1 2 3 5
+5 1 3
+
+Network #35, score: -5213.2433, found by thread 1
+6
+0 0
+1 1 5
+2 0
+3 0
+4 4 0 2 3 5
+5 2 0 2
+
+Network #36, score: -5213.2433, found by thread 1
+6
+0 0
+1 1 5
+2 0
+3 1 1
+4 4 0 2 3 5
+5 2 0 2
+
+Network #37, score: -5214.9100, found by thread 1
+6
+0 3 1 2 5
+1 1 2
+2 1 5
+3 0
+4 3 2 3 5
+5 1 3
+
+Network #38, score: -5215.6638, found by thread 1
+6
+0 1 3
+1 1 5
+2 3 0 1 5
+3 1 5
+4 4 1 2 3 5
+5 0
+
+Network #39, score: -5215.7660, found by thread 1
+6
+0 0
+1 2 0 4
+2 1 5
+3 0
+4 4 0 2 3 5
+5 2 0 3
+
+Network #40, score: -5215.7660, found by thread 1
+6
+0 0
+1 3 0 2 4
+2 1 5
+3 0
+4 4 0 2 3 5
+5 2 0 3
+
+Network #41, score: -5216.1293, found by thread 1
+6
+0 2 4 5
+1 3 0 3 4
+2 4 0 1 4 5
+3 1 5
+4 2 3 5
+5 0
+
+Network #42, score: -5216.1293, found by thread 1
+6
+0 3 1 4 5
+1 2 3 4
+2 4 0 1 4 5
+3 1 5
+4 2 3 5
+5 0
+
+Network #43, score: -5216.1959, found by thread 1
+6
+0 0
+1 1 5
+2 3 0 1 5
+3 1 5
+4 4 1 2 3 5
+5 0
+
+Network #44, score: -5216.1959, found by thread 1
+6
+0 0
+1 2 0 5
+2 2 0 5
+3 1 5
+4 4 1 2 3 5
+5 0
+
+Network #45, score: -5216.1959, found by thread 1
+6
+0 0
+1 2 0 5
+2 3 0 1 5
+3 1 5
+4 4 1 2 3 5
+5 0
+
+Network #46, score: -5216.7421, found by thread 1
+6
+0 4 1 2 3 5
+1 0
+2 0
+3 1 2
+4 3 2 3 5
+5 1 2
+
+Network #47, score: -5217.1584, found by thread 1
+6
+0 0
+1 3 0 2 4
+2 1 5
+3 1 5
+4 4 0 2 3 5
+5 1 0
+
+Network #48, score: -5217.1584, found by thread 1
+6
+0 1 5
+1 2 0 4
+2 1 5
+3 0
+4 4 0 2 3 5
+5 1 3
+
+Network #49, score: -5217.2368, found by thread 1
+6
+0 0
+1 0
+2 0
+3 2 4 5
+4 3 0 2 5
+5 2 0 2
+
+Network #50, score: -5217.2368, found by thread 1
+6
+0 1 1
+1 0
+2 0
+3 2 4 5
+4 3 0 2 5
+5 2 0 2
+
+-----------------------------------------------------------------------------
+- Post-processing                                            Influence scores
+-----------------------------------------------------------------------------
+
+Influence score for   (5,0) ->   (0,0)   .1098
+Influence score for   (4,0) ->   (0,0)   .0000
+Influence score for   (2,0) ->   (0,0)   .0000
+Influence score for   (1,0) ->   (0,0)   .0000
+Influence score for   (2,0) ->   (3,0)   .0000
+Influence score for   (3,0) ->   (4,0)   .0482
+Influence score for   (2,0) ->   (4,0)   .0955
+Influence score for   (4,0) ->   (5,0)   .0722
+Influence score for   (3,0) ->   (5,0)   .0244
+Influence score for   (2,0) ->   (5,0)   .0628
+
+
+-----------------------------------------------------------------------------
+- Post-processing                                             Consensus graph
+-----------------------------------------------------------------------------
+
+6
+0 4 1 2 4 5  	  
+1 0  	  
+2 0  	  
+3 1 2  	  
+4 2 2 3  	  
+5 3 2 3 4  	  
+
+
+-----------------------------------------------------------------------------
+- Post-processing                   Consensus graph and n-best graphs as HTML
+-----------------------------------------------------------------------------
+
+<html>
+<title> Comparing the Consensus Graph with the n-Best Networks </title>
+<body>
+<FONT SIZE="1" FACE="Verdana, Arial, Helvetica, sans-serif">
+<table BORDER=1 CELLPADDING=1 CELLSPACING=0>
+<tr BGCOLOR="#CCCCCC">
+<td> Var </td>
+<td> Consensus </td>
+<td> #1 </td>
+<td> #2 </td>
+<td> #3 </td>
+<td> #4 </td>
+<td> #5 </td>
+<td> #6 </td>
+<td> #7 </td>
+<td> #8 </td>
+<td> #9 </td>
+<td> #10 </td>
+<td> #11 </td>
+<td> #12 </td>
+<td> #13 </td>
+<td> #14 </td>
+<td> #15 </td>
+<td> #16 </td>
+<td> #17 </td>
+<td> #18 </td>
+<td> #19 </td>
+<td> #20 </td>
+<td> #21 </td>
+<td> #22 </td>
+<td> #23 </td>
+<td> #24 </td>
+<td> #25 </td>
+<td> #26 </td>
+<td> #27 </td>
+<td> #28 </td>
+<td> #29 </td>
+<td> #30 </td>
+<td> #31 </td>
+<td> #32 </td>
+<td> #33 </td>
+<td> #34 </td>
+<td> #35 </td>
+<td> #36 </td>
+<td> #37 </td>
+<td> #38 </td>
+<td> #39 </td>
+<td> #40 </td>
+<td> #41 </td>
+<td> #42 </td>
+<td> #43 </td>
+<td> #44 </td>
+<td> #45 </td>
+<td> #46 </td>
+<td> #47 </td>
+<td> #48 </td>
+<td> #49 </td>
+<td> #50 </td>
+</tr>
+<tr>
+<td>0</td>
+<td  BGCOLOR="#FFCCCC"> <strong>  1  2  4  5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  3  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  3  <strong>4</strong>  <strong>5</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  3  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  3  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  3  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  3  <strong>5</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>5</strong></td>
+
+<td>  3</td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>4</strong>  <strong>5</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>4</strong>  <strong>5</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  3  <strong>5</strong></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>5</strong></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong></td>
+
+</tr>
+
+<tr>
+<td>1</td>
+<td  BGCOLOR="#FFCCCC"> <strong></strong></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  0  5</td>
+
+<td>  0  2  5</td>
+
+<td></td>
+
+<td>  2</td>
+
+<td>  2</td>
+
+<td></td>
+
+<td>  0</td>
+
+<td>  0  2  4</td>
+
+<td></td>
+
+<td></td>
+
+<td>  5</td>
+
+<td>  5</td>
+
+<td>  0  5</td>
+
+<td>  5</td>
+
+<td>  4  5</td>
+
+<td>  5</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  3</td>
+
+<td>  3  4</td>
+
+<td>  5</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  0  4</td>
+
+<td>  4</td>
+
+<td></td>
+
+<td>  0</td>
+
+<td>  5</td>
+
+<td>  5</td>
+
+<td>  2</td>
+
+<td>  5</td>
+
+<td>  0  4</td>
+
+<td>  0  2  4</td>
+
+<td>  0  3  4</td>
+
+<td>  3  4</td>
+
+<td>  5</td>
+
+<td>  0  5</td>
+
+<td>  0  5</td>
+
+<td></td>
+
+<td>  0  2  4</td>
+
+<td>  0  4</td>
+
+<td></td>
+
+<td></td>
+
+</tr>
+
+<tr>
+<td>2</td>
+<td  BGCOLOR="#FFCCCC"> <strong></strong></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  3</td>
+
+<td>  3</td>
+
+<td>  4</td>
+
+<td></td>
+
+<td>  4</td>
+
+<td>  4</td>
+
+<td>  4</td>
+
+<td>  0  5</td>
+
+<td>  0  3</td>
+
+<td>  0  3</td>
+
+<td></td>
+
+<td>  3</td>
+
+<td>  3</td>
+
+<td>  3</td>
+
+<td>  3</td>
+
+<td></td>
+
+<td></td>
+
+<td>  3</td>
+
+<td></td>
+
+<td></td>
+
+<td>  1  3  4  5</td>
+
+<td>  1  3  4  5</td>
+
+<td>  3</td>
+
+<td>  3</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  5</td>
+
+<td>  5</td>
+
+<td>  5</td>
+
+<td>  5</td>
+
+<td></td>
+
+<td></td>
+
+<td>  5</td>
+
+<td>  0  1  5</td>
+
+<td>  5</td>
+
+<td>  5</td>
+
+<td>  0  1  4  5</td>
+
+<td>  0  1  4  5</td>
+
+<td>  0  1  5</td>
+
+<td>  0  5</td>
+
+<td>  0  1  5</td>
+
+<td></td>
+
+<td>  5</td>
+
+<td>  5</td>
+
+<td></td>
+
+<td></td>
+
+</tr>
+
+<tr>
+<td>3</td>
+<td  BGCOLOR="#FFCCCC"> <strong>  2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  4  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  4  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  4  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  4  5</td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  4  5</td>
+
+<td>  5</td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  1</td>
+
+<td></td>
+
+<td>  5</td>
+
+<td></td>
+
+<td></td>
+
+<td>  5</td>
+
+<td>  5</td>
+
+<td>  5</td>
+
+<td>  5</td>
+
+<td>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td>  5</td>
+
+<td></td>
+
+<td>  4  5</td>
+
+<td>  4  5</td>
+
+</tr>
+
+<tr>
+<td>4</td>
+<td  BGCOLOR="#FFCCCC"> <strong>  2  3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td>  1</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  5</td>
+
+</tr>
+
+<tr>
+<td>5</td>
+<td  BGCOLOR="#FFCCCC"> <strong>  2  3  4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong>  <strong>4</strong></td>
+
+<td>  0</td>
+
+<td BGCOLOR="#AADDCC">  0  1  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  1  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  1  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>3</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td>  0</td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  0  <strong>2</strong></td>
+
+</tr>
+
+</table>
+</body>
+</html>
+
+
+-----------------------------------------------------------------------------
+- Banjo                        Bayesian Network Inference with Java Objects -
+- Release 2.2.0                                                 15 Apr 2008 -
+- Licensed from Duke University                                             -
+- Copyright (c) 2005-08 by Alexander J. Hartemink                           -
+- All rights reserved                                                       -
+-----------------------------------------------------------------------------
+- Project:                                                Extinction Networks
+- User:                                                                 James
+- Dataset:  Extinction_Network_Output_6_static_network_with_n6_L15_N10_I1000_in1
+- Notes:   Extinction networks with synthetic data for James H BL4200 project
+-----------------------------------------------------------------------------
+- Settings file:                                                             
+-----------------------------------------------------------------------------
+- Input directory:      /Users/james/documents/extinction_networks/instance_1
+- Observations file:  Extinction Network Output 6 static network with n6 L15 N10 I1000 in1.txt
+- Observation count:                                                     1000
+- Number of variables:                                                      6
+- Discretization policy:                                                   q3
+- Exceptions to the discretization policy:                               none
+-----------------------------------------------------------------------------
+- Initial structure file:                                                    
+- 'Must be present' edges file:                                              
+- 'Must not be present' edges file:                                          
+- Min. Markov lag:                                                          0
+- Max. Markov lag:                                                          0
+- Max. parent count:                                                        5
+- Equivalent sample size for Dirichlet parameter prior:                  6000
+-----------------------------------------------------------------------------
+- Searcher:                                                 SearcherSimAnneal
+- Proposer:                                           ProposerRandomLocalMove
+- Evaluator:                                        defaulted to EvaluatorBDe
+- Decider:                                                  DeciderMetropolis
+-----------------------------------------------------------------------------
+- Pre-compute logGamma:                                                   yes
+- Cache:                                                           fastLevel2
+- Cycle checking method:                                   Depth-first Search
+-----------------------------------------------------------------------------
+- Initial temperature:                                                   1000
+- Cooling factor:                                                         0.9
+- Reannealing temperature:                                                500
+- Max. accepted networks before cooling:                                 1000
+- Max. proposed networks before cooling:                                10000
+- Min. accepted networks before reannealing:                              200
+-----------------------------------------------------------------------------
+- Output directory:  /Users/james/documents/extinction_networks/instance_1/BanjoOutputs
+- Report file:  static.Extinction_Network_Output_6_static_network_with_n6_L15_N10_I1000_in1Report.txt
+- Number of best networks tracked:                                         50
+- Best networks are:                                             nonIdentical
+- Max. time:                                                            1.0 h
+- Max. proposed networks:                                               32768
+- Max. restarts:                                                           20
+- Min. networks before checking:                                           30
+- Screen reporting interval:                                           10.0 s
+- File reporting interval:                                              1.0 m
+-----------------------------------------------------------------------------
+- Compute influence scores:                                               yes
+- Compute consensus graph:                                                yes
+- Create consensus graph as HTML:                                         yes
+- Create 'dot' output:                                                     no
+- Location of 'dot':                                             not supplied
+-----------------------------------------------------------------------------
+- XML output directory:  /Users/james/documents/extinction_networks/instance_1/BanjoOutputs
+- XML Report file:                                                           
+- XML settings to export:                                                    
+- XML parser:                             org.apache.xerces.parsers.SAXParser
+- Banjo XML format version:                                               1.0
+-----------------------------------------------------------------------------
+- Seed for starting search:                                     1581885959130
+-----------------------------------------------------------------------------
+- Number of threads:                                                        1
+-----------------------------------------------------------------------------
+
+Memory info before starting the search: Banjo is using 6 mb of memory
+Prep. time used: 667.0 ms
+Beginning to search: expect a status report every 10.0 s
+
+
+
+-----------------------------------------------------------------------------
+- Final report                                          Best networks overall
+-----------------------------------------------------------------------------
+
+
+Network #1, score: -5191.1163, first found at iteration 32591
+6
+0 0
+1 0
+2 2 0 3
+3 1 0
+4 3 0 2 3
+5 4 0 2 3 4
+
+Network #2, score: -5191.1163, first found at iteration 32592
+6
+0 1 1
+1 0
+2 2 0 3
+3 1 0
+4 3 0 2 3
+5 4 0 2 3 4
+
+Network #3, score: -5191.1163, first found at iteration 32595
+6
+0 1 1
+1 0
+2 2 0 3
+3 1 0
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #4, score: -5191.1163, first found at iteration 18287
+6
+0 4 1 2 3 5
+1 1 3
+2 1 3
+3 0
+4 5 0 1 2 3 5
+5 3 1 2 3
+
+Network #5, score: -5191.6484, first found at iteration 32590
+6
+0 0
+1 0
+2 2 0 3
+3 0
+4 3 0 2 3
+5 4 0 2 3 4
+
+Network #6, score: -5191.6484, first found at iteration 32588
+6
+0 0
+1 0
+2 2 0 3
+3 0
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #7, score: -5192.6301, first found at iteration 32597
+6
+0 0
+1 1 0
+2 1 3
+3 1 0
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #8, score: -5192.6301, first found at iteration 32596
+6
+0 1 1
+1 0
+2 1 3
+3 1 0
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #9, score: -5193.0310, first found at iteration 28351
+6
+0 3 2 4 5
+1 3 0 3 4
+2 0
+3 1 2
+4 2 2 3
+5 3 2 3 4
+
+Network #10, score: -5193.0310, first found at iteration 28352
+6
+0 3 2 4 5
+1 3 0 3 4
+2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #11, score: -5193.0310, first found at iteration 21272
+6
+0 3 2 4 5
+1 1 2
+2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #12, score: -5193.0310, first found at iteration 21276
+6
+0 3 2 4 5
+1 1 3
+2 2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #13, score: -5193.0310, first found at iteration 21275
+6
+0 3 2 4 5
+1 0
+2 2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #14, score: -5193.0310, first found at iteration 21281
+6
+0 3 2 4 5
+1 1 3
+2 2 1 3
+3 0
+4 3 2 3 5
+5 2 2 3
+
+Network #15, score: -5193.0935, first found at iteration 18285
+6
+0 2 2 5
+1 1 3
+2 1 3
+3 0
+4 5 0 1 2 3 5
+5 3 1 2 3
+
+Network #16, score: -5193.0935, first found at iteration 18286
+6
+0 3 1 2 5
+1 1 3
+2 1 3
+3 0
+4 5 0 1 2 3 5
+5 3 1 2 3
+
+Network #17, score: -5193.0935, first found at iteration 18284
+6
+0 2 2 5
+1 2 3 5
+2 1 3
+3 0
+4 5 0 1 2 3 5
+5 2 2 3
+
+Network #18, score: -5193.1622, first found at iteration 32586
+6
+0 0
+1 0
+2 1 3
+3 0
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #19, score: -5198.1961, first found at iteration 7744
+6
+0 1 2
+1 3 3 4 5
+2 0
+3 0
+4 3 0 2 3
+5 4 0 2 3 4
+
+Network #20, score: -5198.1961, first found at iteration 7754
+6
+0 1 2
+1 1 3
+2 0
+3 0
+4 3 0 2 3
+5 5 0 1 2 3 4
+
+Network #21, score: -5198.1961, first found at iteration 7743
+6
+0 1 2
+1 2 3 5
+2 0
+3 0
+4 3 0 2 3
+5 4 0 2 3 4
+
+Network #22, score: -5198.1961, first found at iteration 7752
+6
+0 1 2
+1 2 3 4
+2 0
+3 0
+4 3 0 2 3
+5 5 0 1 2 3 4
+
+Network #23, score: -5199.1724, first found at iteration 28353
+6
+0 3 2 4 5
+1 3 0 3 4
+2 0
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #24, score: -5199.3036, first found at iteration 96
+6
+0 0
+1 1 0
+2 0
+3 0
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #25, score: -5199.3036, first found at iteration 99
+6
+0 0
+1 1 0
+2 0
+3 1 1
+4 3 0 2 3
+5 4 0 2 3 4
+
+Network #26, score: -5199.3036, first found at iteration 97
+6
+0 0
+1 1 0
+2 0
+3 1 1
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #27, score: -5199.8750, first found at iteration 28355
+6
+0 2 2 4
+1 3 0 3 4
+2 0
+3 0
+4 2 2 3
+5 4 0 2 3 4
+
+Network #28, score: -5199.8750, first found at iteration 28357
+6
+0 2 2 4
+1 2 3 4
+2 0
+3 0
+4 2 2 3
+5 4 0 2 3 4
+
+Network #29, score: -5200.3780, first found at iteration 32585
+6
+0 1 4
+1 0
+2 1 3
+3 0
+4 3 1 2 3
+5 4 0 2 3 4
+
+Network #30, score: -5203.8411, first found at iteration 29864
+6
+0 4 1 2 3 5
+1 2 2 5
+2 0
+3 4 1 2 4 5
+4 2 2 5
+5 1 2
+
+Network #31, score: -5203.8411, first found at iteration 29863
+6
+0 4 1 2 3 5
+1 2 2 5
+2 1 5
+3 4 1 2 4 5
+4 2 2 5
+5 0
+
+Network #32, score: -5203.8411, first found at iteration 29858
+6
+0 4 1 2 3 5
+1 3 2 4 5
+2 1 5
+3 4 1 2 4 5
+4 2 2 5
+5 0
+
+Network #33, score: -5203.8411, first found at iteration 29866
+6
+0 3 1 2 5
+1 2 2 5
+2 0
+3 4 0 1 2 5
+4 3 2 3 5
+5 1 2
+
+Network #34, score: -5203.9036, first found at iteration 29865
+6
+0 3 1 2 5
+1 2 2 5
+2 0
+3 5 0 1 2 4 5
+4 2 2 5
+5 1 2
+
+Network #35, score: -5205.8254, first found at iteration 7755
+6
+0 1 2
+1 1 3
+2 0
+3 1 4
+4 2 0 2
+5 5 0 1 2 3 4
+
+Network #36, score: -5206.0043, first found at iteration 2836
+6
+0 4 2 3 4 5
+1 1 3
+2 3 3 4 5
+3 1 4
+4 1 5
+5 0
+
+Network #37, score: -5206.2679, first found at iteration 29889
+6
+0 2 1 2
+1 1 2
+2 0
+3 4 0 2 4 5
+4 3 0 2 5
+5 1 2
+
+Network #38, score: -5206.2679, first found at iteration 29888
+6
+0 2 1 2
+1 2 2 5
+2 0
+3 4 0 2 4 5
+4 3 0 2 5
+5 1 2
+
+Network #39, score: -5206.5194, first found at iteration 32583
+6
+0 1 4
+1 1 2
+2 0
+3 0
+4 3 1 2 3
+5 4 0 2 3 4
+
+Network #40, score: -5206.5194, first found at iteration 32584
+6
+0 1 4
+1 0
+2 0
+3 0
+4 3 1 2 3
+5 4 0 2 3 4
+
+Network #41, score: -5206.7980, first found at iteration 7736
+6
+0 1 2
+1 1 3
+2 0
+3 0
+4 2 2 3
+5 4 0 2 3 4
+
+Network #42, score: -5206.7980, first found at iteration 7737
+6
+0 1 2
+1 2 3 5
+2 0
+3 0
+4 2 2 3
+5 4 0 2 3 4
+
+Network #43, score: -5207.1042, first found at iteration 24956
+6
+0 1 1
+1 0
+2 2 0 5
+3 3 2 4 5
+4 2 2 5
+5 0
+
+Network #44, score: -5207.1042, first found at iteration 24957
+6
+0 1 1
+1 0
+2 2 0 5
+3 4 1 2 4 5
+4 2 2 5
+5 0
+
+Network #45, score: -5207.9190, first found at iteration 25059
+6
+0 3 2 4 5
+1 1 3
+2 3 3 4 5
+3 0
+4 1 3
+5 2 1 4
+
+Network #46, score: -5208.8205, first found at iteration 32603
+6
+0 0
+1 1 0
+2 1 3
+3 1 0
+4 5 0 1 2 3 5
+5 2 2 3
+
+Network #47, score: -5209.3639, first found at iteration 16982
+6
+0 0
+1 1 4
+2 3 1 4 5
+3 4 0 2 4 5
+4 2 0 5
+5 0
+
+Network #48, score: -5209.3856, first found at iteration 25042
+6
+0 2 4 5
+1 1 3
+2 4 0 3 4 5
+3 0
+4 1 3
+5 1 4
+
+Network #49, score: -5209.3856, first found at iteration 25041
+6
+0 3 1 4 5
+1 1 3
+2 4 0 3 4 5
+3 0
+4 1 3
+5 1 4
+
+Network #50, score: -5209.8325, first found at iteration 23377
+6
+0 0
+1 1 2
+2 1 4
+3 2 0 4
+4 1 0
+5 4 0 2 3 4
+
+
+-----------------------------------------------------------------------------
+- Search Statistics                                                          
+-----------------------------------------------------------------------------
+
+Statistics collected in searcher 'SearcherSimAnneal':
+  Number of networks examined: 32790
+  Total time used: 743.0 ms
+  High score: -5191.1163, first found at iteration 32591
+  Number of re-anneals: 0
+
+Statistics collected in proposer 'ProposerRandomLocalMove':
+  Additions -- proposed:    12029
+  Deletions -- proposed:    10446
+  Reversals -- proposed:    10314
+
+Statistics collected in cycle checker 'CycleCheckerCheckThenApply':
+  Additions -- considered:  12029,  acyclic:  9395
+  Deletions -- no cyclicity test necessary
+  Reversals -- considered:  10314,  acyclic:  9324
+
+Statistics collected in evaluator 'EvaluatorBDe':
+  Scores computed:          1600
+  Scores (cache)            placed         fetched        
+      with 0 parents:       6              12718          
+      with 1 parents:       30             16596          
+      with 2 parents:       60             6170           
+      with 3 parents:       1248           398            
+      with 4 parents:       236            38             
+      with 5 parents:       20             0              
+
+Statistics collected in decider 'DeciderMetropolis':
+  Additions -- considered:  9395,  better score:  9074,  other accepted:  321
+  Deletions -- considered:  10446,  better score:  2182,  other accepted:  7207
+  Reversals -- considered:  9324,  better score:  5743,  other accepted:  3532
+  Average permissivity:     0.909
+
+No Statistics collected in equivalence checker 'EquivalenceCheckerSkip'.
+
+Memory info after completing the search: Banjo is using 10 mb of memory
+
+
+Network #1, score: -5191.1163, found by thread 1
+6
+0 0
+1 0
+2 2 0 3
+3 1 0
+4 3 0 2 3
+5 4 0 2 3 4
+
+Network #2, score: -5191.1163, found by thread 1
+6
+0 1 1
+1 0
+2 2 0 3
+3 1 0
+4 3 0 2 3
+5 4 0 2 3 4
+
+Network #3, score: -5191.1163, found by thread 1
+6
+0 1 1
+1 0
+2 2 0 3
+3 1 0
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #4, score: -5191.1163, found by thread 1
+6
+0 4 1 2 3 5
+1 1 3
+2 1 3
+3 0
+4 5 0 1 2 3 5
+5 3 1 2 3
+
+Network #5, score: -5191.6484, found by thread 1
+6
+0 0
+1 0
+2 2 0 3
+3 0
+4 3 0 2 3
+5 4 0 2 3 4
+
+Network #6, score: -5191.6484, found by thread 1
+6
+0 0
+1 0
+2 2 0 3
+3 0
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #7, score: -5192.6301, found by thread 1
+6
+0 0
+1 1 0
+2 1 3
+3 1 0
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #8, score: -5192.6301, found by thread 1
+6
+0 1 1
+1 0
+2 1 3
+3 1 0
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #9, score: -5193.0310, found by thread 1
+6
+0 3 2 4 5
+1 3 0 3 4
+2 0
+3 1 2
+4 2 2 3
+5 3 2 3 4
+
+Network #10, score: -5193.0310, found by thread 1
+6
+0 3 2 4 5
+1 3 0 3 4
+2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #11, score: -5193.0310, found by thread 1
+6
+0 3 2 4 5
+1 1 2
+2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #12, score: -5193.0310, found by thread 1
+6
+0 3 2 4 5
+1 1 3
+2 2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #13, score: -5193.0310, found by thread 1
+6
+0 3 2 4 5
+1 0
+2 2 1 3
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #14, score: -5193.0310, found by thread 1
+6
+0 3 2 4 5
+1 1 3
+2 2 1 3
+3 0
+4 3 2 3 5
+5 2 2 3
+
+Network #15, score: -5193.0935, found by thread 1
+6
+0 2 2 5
+1 1 3
+2 1 3
+3 0
+4 5 0 1 2 3 5
+5 3 1 2 3
+
+Network #16, score: -5193.0935, found by thread 1
+6
+0 3 1 2 5
+1 1 3
+2 1 3
+3 0
+4 5 0 1 2 3 5
+5 3 1 2 3
+
+Network #17, score: -5193.0935, found by thread 1
+6
+0 2 2 5
+1 2 3 5
+2 1 3
+3 0
+4 5 0 1 2 3 5
+5 2 2 3
+
+Network #18, score: -5193.1622, found by thread 1
+6
+0 0
+1 0
+2 1 3
+3 0
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #19, score: -5198.1961, found by thread 1
+6
+0 1 2
+1 3 3 4 5
+2 0
+3 0
+4 3 0 2 3
+5 4 0 2 3 4
+
+Network #20, score: -5198.1961, found by thread 1
+6
+0 1 2
+1 1 3
+2 0
+3 0
+4 3 0 2 3
+5 5 0 1 2 3 4
+
+Network #21, score: -5198.1961, found by thread 1
+6
+0 1 2
+1 2 3 5
+2 0
+3 0
+4 3 0 2 3
+5 4 0 2 3 4
+
+Network #22, score: -5198.1961, found by thread 1
+6
+0 1 2
+1 2 3 4
+2 0
+3 0
+4 3 0 2 3
+5 5 0 1 2 3 4
+
+Network #23, score: -5199.1724, found by thread 1
+6
+0 3 2 4 5
+1 3 0 3 4
+2 0
+3 0
+4 2 2 3
+5 3 2 3 4
+
+Network #24, score: -5199.3036, found by thread 1
+6
+0 0
+1 1 0
+2 0
+3 0
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #25, score: -5199.3036, found by thread 1
+6
+0 0
+1 1 0
+2 0
+3 1 1
+4 3 0 2 3
+5 4 0 2 3 4
+
+Network #26, score: -5199.3036, found by thread 1
+6
+0 0
+1 1 0
+2 0
+3 1 1
+4 4 0 1 2 3
+5 4 0 2 3 4
+
+Network #27, score: -5199.8750, found by thread 1
+6
+0 2 2 4
+1 3 0 3 4
+2 0
+3 0
+4 2 2 3
+5 4 0 2 3 4
+
+Network #28, score: -5199.8750, found by thread 1
+6
+0 2 2 4
+1 2 3 4
+2 0
+3 0
+4 2 2 3
+5 4 0 2 3 4
+
+Network #29, score: -5200.3780, found by thread 1
+6
+0 1 4
+1 0
+2 1 3
+3 0
+4 3 1 2 3
+5 4 0 2 3 4
+
+Network #30, score: -5203.8411, found by thread 1
+6
+0 4 1 2 3 5
+1 2 2 5
+2 0
+3 4 1 2 4 5
+4 2 2 5
+5 1 2
+
+Network #31, score: -5203.8411, found by thread 1
+6
+0 4 1 2 3 5
+1 2 2 5
+2 1 5
+3 4 1 2 4 5
+4 2 2 5
+5 0
+
+Network #32, score: -5203.8411, found by thread 1
+6
+0 4 1 2 3 5
+1 3 2 4 5
+2 1 5
+3 4 1 2 4 5
+4 2 2 5
+5 0
+
+Network #33, score: -5203.8411, found by thread 1
+6
+0 3 1 2 5
+1 2 2 5
+2 0
+3 4 0 1 2 5
+4 3 2 3 5
+5 1 2
+
+Network #34, score: -5203.9036, found by thread 1
+6
+0 3 1 2 5
+1 2 2 5
+2 0
+3 5 0 1 2 4 5
+4 2 2 5
+5 1 2
+
+Network #35, score: -5205.8254, found by thread 1
+6
+0 1 2
+1 1 3
+2 0
+3 1 4
+4 2 0 2
+5 5 0 1 2 3 4
+
+Network #36, score: -5206.0043, found by thread 1
+6
+0 4 2 3 4 5
+1 1 3
+2 3 3 4 5
+3 1 4
+4 1 5
+5 0
+
+Network #37, score: -5206.2679, found by thread 1
+6
+0 2 1 2
+1 1 2
+2 0
+3 4 0 2 4 5
+4 3 0 2 5
+5 1 2
+
+Network #38, score: -5206.2679, found by thread 1
+6
+0 2 1 2
+1 2 2 5
+2 0
+3 4 0 2 4 5
+4 3 0 2 5
+5 1 2
+
+Network #39, score: -5206.5194, found by thread 1
+6
+0 1 4
+1 1 2
+2 0
+3 0
+4 3 1 2 3
+5 4 0 2 3 4
+
+Network #40, score: -5206.5194, found by thread 1
+6
+0 1 4
+1 0
+2 0
+3 0
+4 3 1 2 3
+5 4 0 2 3 4
+
+Network #41, score: -5206.7980, found by thread 1
+6
+0 1 2
+1 1 3
+2 0
+3 0
+4 2 2 3
+5 4 0 2 3 4
+
+Network #42, score: -5206.7980, found by thread 1
+6
+0 1 2
+1 2 3 5
+2 0
+3 0
+4 2 2 3
+5 4 0 2 3 4
+
+Network #43, score: -5207.1042, found by thread 1
+6
+0 1 1
+1 0
+2 2 0 5
+3 3 2 4 5
+4 2 2 5
+5 0
+
+Network #44, score: -5207.1042, found by thread 1
+6
+0 1 1
+1 0
+2 2 0 5
+3 4 1 2 4 5
+4 2 2 5
+5 0
+
+Network #45, score: -5207.9190, found by thread 1
+6
+0 3 2 4 5
+1 1 3
+2 3 3 4 5
+3 0
+4 1 3
+5 2 1 4
+
+Network #46, score: -5208.8205, found by thread 1
+6
+0 0
+1 1 0
+2 1 3
+3 1 0
+4 5 0 1 2 3 5
+5 2 2 3
+
+Network #47, score: -5209.3639, found by thread 1
+6
+0 0
+1 1 4
+2 3 1 4 5
+3 4 0 2 4 5
+4 2 0 5
+5 0
+
+Network #48, score: -5209.3856, found by thread 1
+6
+0 2 4 5
+1 1 3
+2 4 0 3 4 5
+3 0
+4 1 3
+5 1 4
+
+Network #49, score: -5209.3856, found by thread 1
+6
+0 3 1 4 5
+1 1 3
+2 4 0 3 4 5
+3 0
+4 1 3
+5 1 4
+
+Network #50, score: -5209.8325, found by thread 1
+6
+0 0
+1 1 2
+2 1 4
+3 2 0 4
+4 1 0
+5 4 0 2 3 4
+
+-----------------------------------------------------------------------------
+- Post-processing                                            Influence scores
+-----------------------------------------------------------------------------
+
+Influence score for   (3,0) ->   (2,0)   .0249
+Influence score for   (0,0) ->   (2,0)   .0086
+Influence score for   (0,0) ->   (3,0)   .0000
+Influence score for   (3,0) ->   (4,0)   .0453
+Influence score for   (2,0) ->   (4,0)   .0911
+Influence score for   (0,0) ->   (4,0)   .0076
+Influence score for   (4,0) ->   (5,0)   .0987
+Influence score for   (3,0) ->   (5,0)   .0227
+Influence score for   (2,0) ->   (5,0)   .1253
+Influence score for   (0,0) ->   (5,0)   -.0135
+
+
+-----------------------------------------------------------------------------
+- Post-processing                                             Consensus graph
+-----------------------------------------------------------------------------
+
+6
+0 0  	  
+1 0  	  
+2 2 0 3  	  
+3 0  	  
+4 4 0 1 2 3  	  
+5 4 0 2 3 4  	  
+
+
+-----------------------------------------------------------------------------
+- Post-processing                   Consensus graph and n-best graphs as HTML
+-----------------------------------------------------------------------------
+
+<html>
+<title> Comparing the Consensus Graph with the n-Best Networks </title>
+<body>
+<FONT SIZE="1" FACE="Verdana, Arial, Helvetica, sans-serif">
+<table BORDER=1 CELLPADDING=1 CELLSPACING=0>
+<tr BGCOLOR="#CCCCCC">
+<td> Var </td>
+<td> Consensus </td>
+<td> #1 </td>
+<td> #2 </td>
+<td> #3 </td>
+<td> #4 </td>
+<td> #5 </td>
+<td> #6 </td>
+<td> #7 </td>
+<td> #8 </td>
+<td> #9 </td>
+<td> #10 </td>
+<td> #11 </td>
+<td> #12 </td>
+<td> #13 </td>
+<td> #14 </td>
+<td> #15 </td>
+<td> #16 </td>
+<td> #17 </td>
+<td> #18 </td>
+<td> #19 </td>
+<td> #20 </td>
+<td> #21 </td>
+<td> #22 </td>
+<td> #23 </td>
+<td> #24 </td>
+<td> #25 </td>
+<td> #26 </td>
+<td> #27 </td>
+<td> #28 </td>
+<td> #29 </td>
+<td> #30 </td>
+<td> #31 </td>
+<td> #32 </td>
+<td> #33 </td>
+<td> #34 </td>
+<td> #35 </td>
+<td> #36 </td>
+<td> #37 </td>
+<td> #38 </td>
+<td> #39 </td>
+<td> #40 </td>
+<td> #41 </td>
+<td> #42 </td>
+<td> #43 </td>
+<td> #44 </td>
+<td> #45 </td>
+<td> #46 </td>
+<td> #47 </td>
+<td> #48 </td>
+<td> #49 </td>
+<td> #50 </td>
+</tr>
+<tr>
+<td>0</td>
+<td  BGCOLOR="#FFCCCC"> <strong></strong></td>
+
+<td></td>
+
+<td>  1</td>
+
+<td>  1</td>
+
+<td>  1  2  3  5</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  1</td>
+
+<td>  2  4  5</td>
+
+<td>  2  4  5</td>
+
+<td>  2  4  5</td>
+
+<td>  2  4  5</td>
+
+<td>  2  4  5</td>
+
+<td>  2  4  5</td>
+
+<td>  2  5</td>
+
+<td>  1  2  5</td>
+
+<td>  2  5</td>
+
+<td></td>
+
+<td>  2</td>
+
+<td>  2</td>
+
+<td>  2</td>
+
+<td>  2</td>
+
+<td>  2  4  5</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  2  4</td>
+
+<td>  2  4</td>
+
+<td>  4</td>
+
+<td>  1  2  3  5</td>
+
+<td>  1  2  3  5</td>
+
+<td>  1  2  3  5</td>
+
+<td>  1  2  5</td>
+
+<td>  1  2  5</td>
+
+<td>  2</td>
+
+<td>  2  3  4  5</td>
+
+<td>  1  2</td>
+
+<td>  1  2</td>
+
+<td>  4</td>
+
+<td>  4</td>
+
+<td>  2</td>
+
+<td>  2</td>
+
+<td>  1</td>
+
+<td>  1</td>
+
+<td>  2  4  5</td>
+
+<td></td>
+
+<td></td>
+
+<td>  4  5</td>
+
+<td>  1  4  5</td>
+
+<td></td>
+
+</tr>
+
+<tr>
+<td>1</td>
+<td  BGCOLOR="#FFCCCC"> <strong></strong></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  3</td>
+
+<td></td>
+
+<td></td>
+
+<td>  0</td>
+
+<td></td>
+
+<td>  0  3  4</td>
+
+<td>  0  3  4</td>
+
+<td>  2</td>
+
+<td>  3</td>
+
+<td></td>
+
+<td>  3</td>
+
+<td>  3</td>
+
+<td>  3</td>
+
+<td>  3  5</td>
+
+<td></td>
+
+<td>  3  4  5</td>
+
+<td>  3</td>
+
+<td>  3  5</td>
+
+<td>  3  4</td>
+
+<td>  0  3  4</td>
+
+<td>  0</td>
+
+<td>  0</td>
+
+<td>  0</td>
+
+<td>  0  3  4</td>
+
+<td>  3  4</td>
+
+<td></td>
+
+<td>  2  5</td>
+
+<td>  2  5</td>
+
+<td>  2  4  5</td>
+
+<td>  2  5</td>
+
+<td>  2  5</td>
+
+<td>  3</td>
+
+<td>  3</td>
+
+<td>  2</td>
+
+<td>  2  5</td>
+
+<td>  2</td>
+
+<td></td>
+
+<td>  3</td>
+
+<td>  3  5</td>
+
+<td></td>
+
+<td></td>
+
+<td>  3</td>
+
+<td>  0</td>
+
+<td>  4</td>
+
+<td>  3</td>
+
+<td>  3</td>
+
+<td>  2</td>
+
+</tr>
+
+<tr>
+<td>2</td>
+<td  BGCOLOR="#FFCCCC"> <strong>  0  3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td></td>
+
+<td>  5</td>
+
+<td>  5</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong>  4  5</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong>  4  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td>  1  4  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>3</strong>  4  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>3</strong>  4  5</td>
+
+<td>  4</td>
+
+</tr>
+
+<tr>
+<td>3</td>
+<td  BGCOLOR="#FFCCCC"> <strong></strong></td>
+
+<td>  0</td>
+
+<td>  0</td>
+
+<td>  0</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  0</td>
+
+<td>  0</td>
+
+<td>  2</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  1</td>
+
+<td>  1</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  1  2  4  5</td>
+
+<td>  1  2  4  5</td>
+
+<td>  1  2  4  5</td>
+
+<td>  0  1  2  5</td>
+
+<td>  0  1  2  4  5</td>
+
+<td>  4</td>
+
+<td>  4</td>
+
+<td>  0  2  4  5</td>
+
+<td>  0  2  4  5</td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td></td>
+
+<td>  2  4  5</td>
+
+<td>  1  2  4  5</td>
+
+<td></td>
+
+<td>  0</td>
+
+<td>  0  2  4  5</td>
+
+<td></td>
+
+<td></td>
+
+<td>  0  4</td>
+
+</tr>
+
+<tr>
+<td>4</td>
+<td  BGCOLOR="#FFCCCC"> <strong>  0  1  2  3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>1</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>1</strong>  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>1</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>1</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>1</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>1</strong>  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>1</strong>  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>1</strong>  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>1</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>1</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>1</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong></td>
+
+<td>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>1</strong>  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>1</strong>  <strong>2</strong>  <strong>3</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  5</td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong></td>
+
+</tr>
+
+<tr>
+<td>5</td>
+<td  BGCOLOR="#FFCCCC"> <strong>  0  2  3  4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  1  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  1  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  1  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+<td></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  1  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>2</strong>  <strong>3</strong></td>
+
+<td></td>
+
+<td BGCOLOR="#AADDCC">  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>4</strong></td>
+
+<td BGCOLOR="#AADDCC">  <strong>0</strong>  <strong>2</strong>  <strong>3</strong>  <strong>4</strong></td>
+
+</tr>
+
+</table>
+</body>
+</html>
+
+

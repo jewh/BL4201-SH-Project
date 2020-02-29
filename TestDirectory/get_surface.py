@@ -25,7 +25,10 @@ def get_iterations(path):
     count = 0
     for line in filein:
         if '#' in line:
-            iteration_values.append(between(line, '#', ','))
+            if '<' in line:
+                pass
+            else:
+                iteration_values.append(between(line, '#', ','))
             if '#1,' in line:
                 count += 1 # just checks how many repeats there are on the file
     filein.close()
@@ -45,7 +48,10 @@ def get_scores(path):
         if '1#,' in line:
             ticker += 1
         if '#' in line:
-            data[int(between(line, '#', ',')-1)] = between(line, 'score: ', ', f')
+            if '<' in line:
+                pass
+            else:
+                data[int(between(line, '#', ',')-1)] = between(line, 'score: ', ', f')
     # Now plot the data on one figure
     filein.close()
     return data
@@ -71,12 +77,18 @@ for file in files:
     # Now just sift out what sample the file belongs to
     if str(file).find('Positive') >= 0:
         colour = 'g'
+        #label = 'Positive Control'
     elif str(file).find('Neg') >= 0:
         colour = 'r'
+        #label = 'Negative Control'
     else:
         colour = 'b'
+        #label = 'Sample'
     # So red = neg control, green = pos control, blue = test
     y = get_scores("{0}/{1}".format(current_directory, file))
     x = np.arange(0, get_iterations("{0}/{1}".format(current_directory, file))[1], step=1)
     plt.plot(x, y, colour)
+    plt.xlabel("Best network number")
+    plt.ylabel("BDe")
+    plt.title("BDe Scores for Network {0}".format(int(between(file, '_in', 'Report'))))
 plt.show()
