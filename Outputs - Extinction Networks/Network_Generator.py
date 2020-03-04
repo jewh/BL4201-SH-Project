@@ -4,6 +4,7 @@ import numpy as np
 import scipy as sc # Need scipy for the random graph generation
 import matplotlib.pyplot as plt
 import networkx as nx
+from networkx.algorithms import bipartite
 from timeit import default_timer
 from tqdm import tqdm
 
@@ -53,14 +54,20 @@ def bound(x):
 # Create a function that returns a network structure for a given Jacobian matrix and outputs the result as an image file
 
 
-def draw_network(jacobian, nodes, links, noise, alpha, beta, instance):
+def draw_network(jacobian, kind, nodes, links, noise, alpha, beta, instance):
+       # print("drawing")
         g = nx.from_numpy_matrix(jacobian, create_using=nx.DiGraph())
         plt.figure()
-        nx.draw(g, with_labels=True, font_weight='bold', pos=nx.circular_layout(g))
+        if kind == 'gene_reg':
+            genes = np.arange(0, nodes)
+            pos = nx.bipartite_layout(g, genes)
+        else:
+            pos = nx.circular_layout(g)
+        nx.draw(g, with_labels=True, font_weight='bold', pos=pos) # is nx.circular_layout for alternative
         plt.suptitle("Network on {0} nodes, with {1} links".format(nodes, links))
         plt.title("Interactions a beta distribution where alpha = {0}, beta = {1}".format(alpha, beta))
         plt.savefig("Network structure with n{0} L{1} N{2} in{3}.png".format(nodes, links, noise, instance))
-
+       # plt.show()
 
 # Create a function for saving .txt files of arrays, to trim down the code
 # Specify the decimal place precision to 6 using fmt = '%.6f'
@@ -100,10 +107,23 @@ class ExtinctionNetwork:
         return jacobian
 
     # ***This function appears to work as intended, maybe need to alter the distribution of interaction strengths though***
+    # Create a function that generates random bipartite graphs for given numbers of nodes and probability of forming a link,
+    # which will be given by links/(nodes in one part * nodes in second part)
+
+    def create_bipartite(self):
+        # keep the number of 'proteins' higher than the number of 'genes' - will probably need to come back and change this to test later
+        # should also test if one gene to disjoint groups of proteins affects inference
+        proteins = rd.uniform(self.nodes, 3*self.nodes)
+        p = self.links/(self.nodes*proteins)
+        network = nx.bipartite.random_graph(self.nodes, int(proteins), p, directed=True)
+        for (i, j) in network.edges():
+            network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta )*(-1)**(rd.choice((1, 2)))
+        jacobian = nx.to_numpy_matrix(network, dtype=float)
+        return jacobian
     # Now create function for visualising the network structure
 
 
-    def evolve_system(self):
+    def evolve_ecosystem(self):
         # Establish a network structure, and save this to an image file (.png)
         jacobian = self.create_network()
         draw_network(jacobian, self.nodes, self.links, self.noise, self.alpha, self.beta, self.instance)
@@ -135,8 +155,6 @@ class ExtinctionNetwork:
                 save_txt(control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Positive Control {0}'.format(iterate))
                 save_txt(neg_control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Extinction Network Neg Control {0}'.format(iterate))
 
-        elif self.kind == 'gene_reg':
-            pass
         elif self.kind == 'dynamic_extinction':
             # Still generate a nodes*iterates sized array, but with time increasing as go down the file
             for iterate in tqdm(range(0, self.number_replicates)):
@@ -165,6 +183,38 @@ class ExtinctionNetwork:
         else:
             print('ERROR: {} is not a valid kind of network!'.format(self.kind))
 
+    def evolve_genesystem(self):
+        jacobian = self.create_bipartite()
+        draw_network(jacobian, self.kind, self.nodes, self.links, self.noise, self.alpha, self.beta, self.instance)
+        save_txt(jacobian, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance,
+                 'gene network structure')
+        # need to get number of proteins for data saving
+        # Lazy method for now, as the number of proteins >= number of genes
+        proteins = max(np.shape(jacobian))
+        for iterate in tqdm(range(0, self.number_replicates)):
+            # Generate a positive control network where the nodes are observed and a test sample where they are not
+            out_pos_control = np.full((self.iterations, self.nodes+proteins), 10.0, dtype=float)
+            # In this array, the first n entries along the horizontal represent gene levels, and the next m represent protein levels
+            out = np.full((self.iterations, self.nodes), 10.0, dtype=float)
+            # Similarly, create a data set for only the n genes
+            # Now fill these in with a simple dynamical model
+            t = 0       # create time counter
+            while t < self.time:
+                t+=1
+                for i in range(0, self.iterations):
+                    for j in range(0, self.nodes):  # fill up the output array
+                        for k in range(0, proteins):
+                            out[i, j] += noisy_interaction(jacobian[k, j], out_pos_control[i, self.nodes+k], self.noise)*out_pos_control[i, self.nodes+k]
+                            # (assume for convention that the kjth entry represents k -> j)
+                            out_pos_control[i, j] += noisy_interaction(jacobian[k, j], out_pos_control[i, self.nodes+k], self.noise)*out_pos_control[i, self.nodes+k]
+                            out_pos_control[i, self.nodes+k] += noisy_interaction(jacobian[j, k], out_pos_control[i, j], self.noise)*out_pos_control[i, j]
+                            # so interactions are going gene -> protein and protein -> gene but never gene -> gene or protein -> protein
+            # Now save
+            save_txt(out, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance,
+                     'Gene Network Output {0}'.format(iterate))
+            save_txt(out_pos_control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance,
+                     'Gene Network Positive Control {0}'.format(iterate))
+
 
 
 
@@ -175,8 +225,8 @@ class ExtinctionNetwork:
 
 number_networks = 10
 for i in range(0, number_networks):
-    print("{0}%".format(100.0*i/float(number_networks)))
-    out = ExtinctionNetwork('dynamic_extinction', 6, 15, 10.0, 1000, i)
-    out.evolve_system()
+    #print("{0}%".format(100.0*i/float(number_networks)))
+    out = ExtinctionNetwork('gene_reg', 6, 15, 10.0, 1000, i)
+    out.evolve_genesystem()
 # end = default_timer()
 # print("----%s---- " %(end - start))
