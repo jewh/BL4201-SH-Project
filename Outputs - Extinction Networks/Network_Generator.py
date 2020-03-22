@@ -113,11 +113,14 @@ class ExtinctionNetwork:
     def create_bipartite(self):
         # keep the number of 'proteins' higher than the number of 'genes' - will probably need to come back and change this to test later
         # should also test if one gene to disjoint groups of proteins affects inference
-        proteins = rd.uniform(self.nodes, 3*self.nodes)
+        # update 12/03/20 decided for computational ease to keep proteins = nodes, as not really interested in difference of size between two
+        proteins = self.nodes
+        # Cannot assign the exact number of links, rather give a probability of a link being formed
         p = self.links/(self.nodes*proteins)
         network = nx.bipartite.random_graph(self.nodes, int(proteins), p, directed=True)
         for (i, j) in network.edges():
             network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta )*(-1)**(rd.choice((1, 2)))
+        # returns a square matrix
         jacobian = nx.to_numpy_matrix(network, dtype=float)
         return jacobian
     # Now create function for visualising the network structure
@@ -190,7 +193,8 @@ class ExtinctionNetwork:
                  'gene network structure')
         # need to get number of proteins for data saving
         # Lazy method for now, as the number of proteins >= number of genes
-        proteins = max(np.shape(jacobian))
+        # update 12/03/20 setting proteins = nodes
+        proteins = self.nodes
         for iterate in tqdm(range(0, self.number_replicates)):
             # Generate a positive control network where the nodes are observed and a test sample where they are not
             out_pos_control = np.full((self.iterations, self.nodes+proteins), 10.0, dtype=float)
@@ -200,14 +204,17 @@ class ExtinctionNetwork:
             # Now fill these in with a simple dynamical model
             t = 0       # create time counter
             while t < self.time:
-                t+=1
-                for i in range(0, self.iterations):
+                t += 1
+                for i in tqdm(range(0, self.iterations)):
                     for j in range(0, self.nodes):  # fill up the output array
                         for k in range(0, proteins):
                             out[i, j] += noisy_interaction(jacobian[k, j], out_pos_control[i, self.nodes+k], self.noise)*out_pos_control[i, self.nodes+k]
+                            out[i ,j] = bound(out[i ,j])
                             # (assume for convention that the kjth entry represents k -> j)
                             out_pos_control[i, j] += noisy_interaction(jacobian[k, j], out_pos_control[i, self.nodes+k], self.noise)*out_pos_control[i, self.nodes+k]
                             out_pos_control[i, self.nodes+k] += noisy_interaction(jacobian[j, k], out_pos_control[i, j], self.noise)*out_pos_control[i, j]
+                            out_pos_control[i ,j] = bound(out_pos_control[i ,j])
+                            out_pos_control[i, self.nodes+k] = bound(out_pos_control[i, self.nodes+k])
                             # so interactions are going gene -> protein and protein -> gene but never gene -> gene or protein -> protein
             # Now save
             save_txt(out, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance,

@@ -1,0 +1,1635 @@
+-----------------------------------------------------------------------------
+- Banjo                        Bayesian Network Inference with Java Objects -
+- Release 2.2.0                                                 15 Apr 2008 -
+- Licensed from Duke University                                             -
+- Copyright (c) 2005-08 by Alexander J. Hartemink                           -
+- All rights reserved                                                       -
+-----------------------------------------------------------------------------
+- Project:                                        Dynamic Extinction Networks
+- User:                                                                 James
+- Dataset:  Extinction_Network_Positive_Control_8_dynamic_extinction_network_with_n6_L15_N10_I1000_in8
+- Notes:   Extinction networks with synthetic data for James H BL4200 project
+-----------------------------------------------------------------------------
+- Settings file:                                                             
+-----------------------------------------------------------------------------
+- Input directory:         /Users/james/documents/dynamic_extinction_networks
+- Observations file:  Extinction Network Positive Control 8 dynamic_extinction network with n6 L15 N10 I1000 in8.txt
+- Number of observations (in file):                                      1000
+- Number of observations used for learning DBN:                           999
+- Number of variables:                                                      6
+- Discretization policy:                                                   q3
+- Exceptions to the discretization policy:                               none
+-----------------------------------------------------------------------------
+- Initial structure file:                                                    
+- 'Must be present' edges file:                                              
+- 'Must not be present' edges file:                                          
+- Min. Markov lag:                                                          1
+- Max. Markov lag:                                                          1
+- DBN mandatory identity lag(s):                                            1
+- Max. parent count:                                                        5
+- Equivalent sample size for Dirichlet parameter prior:                  6000
+-----------------------------------------------------------------------------
+- Searcher:                                                 SearcherSimAnneal
+- Proposer:                                           ProposerRandomLocalMove
+- Evaluator:                                        defaulted to EvaluatorBDe
+- Decider:                                                  DeciderMetropolis
+-----------------------------------------------------------------------------
+- Pre-compute logGamma:                                                   yes
+- Cache:                                                           fastLevel2
+- Cycle checking method:                                   Depth-first Search
+-----------------------------------------------------------------------------
+- Initial temperature:                                                   1000
+- Cooling factor:                                                         0.9
+- Reannealing temperature:                                                500
+- Max. accepted networks before cooling:                                 1000
+- Max. proposed networks before cooling:                                10000
+- Min. accepted networks before reannealing:                              200
+-----------------------------------------------------------------------------
+- Output directory:  /Users/james/documents/dynamic_extinction_networks/BanjoOutputs
+- Report file:  static.Extinction_Network_Positive_Control_8_dynamic_extinction_network_with_n6_L15_N10_I1000_in8Report.txt
+- Number of best networks tracked:                                         50
+- Best networks are:                                             nonIdentical
+- Max. time:                                                            1.0 h
+- Max. proposed networks:                                               32768
+- Max. restarts:                                                           20
+- Min. networks before checking:                                           30
+- Screen reporting interval:                                           10.0 s
+- File reporting interval:                                              1.0 m
+-----------------------------------------------------------------------------
+- Compute influence scores:                                               yes
+- Compute consensus graph:                                                yes
+- Create consensus graph as HTML:                                         yes
+- Create 'dot' output:                                                     no
+- Location of 'dot':                                             not supplied
+-----------------------------------------------------------------------------
+- XML output directory:  /Users/james/documents/dynamic_extinction_networks/BanjoOutputs
+- XML Report file:                                                           
+- XML settings to export:                                                    
+- XML parser:                             org.apache.xerces.parsers.SAXParser
+- Banjo XML format version:                                               1.0
+-----------------------------------------------------------------------------
+- Seed for starting search:                                     1581955748006
+-----------------------------------------------------------------------------
+- Number of threads:                                                        1
+-----------------------------------------------------------------------------
+
+Memory info before starting the search: Banjo is using 6 mb of memory
+Prep. time used: 673.0 ms
+Beginning to search: expect a status report every 10.0 s
+
+
+
+-----------------------------------------------------------------------------
+- Final report                                          Best networks overall
+-----------------------------------------------------------------------------
+
+
+Network #1, score: -1660.6243, first found at iteration 29122
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #2, score: -1660.6259, first found at iteration 28034
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 1 2 3 4 5    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #3, score: -1661.0187, first found at iteration 28171
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #4, score: -1661.4799, first found at iteration 28028
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 1 2 3 4 5    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #5, score: -1661.5958, first found at iteration 29126
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #6, score: -1661.6155, first found at iteration 28169
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #7, score: -1661.6171, first found at iteration 28036
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #8, score: -1661.8125, first found at iteration 17711
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #9, score: -1662.3897, first found at iteration 26989
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #10, score: -1662.4109, first found at iteration 17697
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #11, score: -1662.5374, first found at iteration 30331
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #12, score: -1662.5675, first found at iteration 29127
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #13, score: -1662.5871, first found at iteration 27887
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #14, score: -1662.6665, first found at iteration 10723
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #15, score: -1662.7152, first found at iteration 29140
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #16, score: -1662.7153, first found at iteration 26996
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #17, score: -1662.7842, first found at iteration 17710
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #18, score: -1663.0901, first found at iteration 31990
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   4 1 2 3 4      
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #19, score: -1663.2649, first found at iteration 10722
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #20, score: -1663.3809, first found at iteration 26986
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #21, score: -1663.3826, first found at iteration 17707
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #22, score: -1663.3914, first found at iteration 30330
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #23, score: -1663.3931, first found at iteration 20106
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 1 2 3 4 5    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #24, score: -1663.4427, first found at iteration 32732
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #25, score: -1663.5091, first found at iteration 26995
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #26, score: -1663.5692, first found at iteration 29134
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #27, score: -1663.6868, first found at iteration 29141
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #28, score: -1663.6885, first found at iteration 31989
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #29, score: -1707.6175, first found at iteration 30417
+6
+0   1:   5 0 1 2 4 5    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #30, score: -1708.1964, first found at iteration 27637
+6
+0   1:   5 0 1 2 4 5    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #31, score: -1708.2143, first found at iteration 30411
+6
+0   1:   5 0 1 2 4 5    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #32, score: -1708.4113, first found at iteration 30419
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #33, score: -1708.4715, first found at iteration 30415
+6
+0   1:   5 0 1 2 4 5    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #34, score: -1708.9885, first found at iteration 29330
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #35, score: -1709.0683, first found at iteration 30412
+6
+0   1:   5 0 1 2 4 5    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #36, score: -1709.0699, first found at iteration 32079
+6
+0   1:   5 0 1 2 4 5    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #37, score: -1709.1362, first found at iteration 29327
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #38, score: -1709.1679, first found at iteration 27635
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 0 1 2 3 4    
+2   1:   4 1 2 3 4      
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #39, score: -1709.2653, first found at iteration 30414
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #40, score: -1709.3156, first found at iteration 27627
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   5 1 2 3 4 5    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #41, score: -1709.5111, first found at iteration 29318
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   4 1 2 3 4      
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #42, score: -1709.8621, first found at iteration 30413
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #43, score: -1710.1079, first found at iteration 29304
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #44, score: -1710.1095, first found at iteration 29319
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #45, score: -1710.2873, first found at iteration 27624
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #46, score: -1728.0500, first found at iteration 31755
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 0 1 2 4 5    
+
+Network #47, score: -1728.4030, first found at iteration 31691
+6
+0   1:   4 0 1 2 4      
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #48, score: -1728.4647, first found at iteration 32733
+6
+0   1:   4 0 1 2 4      
+1   1:   5 0 1 2 3 4    
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #49, score: -1729.0233, first found at iteration 21418
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 0 1 2 4 5    
+
+Network #50, score: -1729.0412, first found at iteration 31748
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 0 1 2 4 5    
+
+
+-----------------------------------------------------------------------------
+- Search Statistics                                                          
+-----------------------------------------------------------------------------
+
+Statistics collected in searcher 'SearcherSimAnneal':
+  Number of networks examined: 32790
+  Total time used: 2.35 s
+  High score: -1660.6243, first found at iteration 29122
+  Number of re-anneals: 0
+
+Statistics collected in proposer 'ProposerRandomLocalMove':
+  Additions -- proposed:    12398
+  Deletions -- proposed:    20391
+  Reversals -- proposed:    0 (min. Markov lag = 1)
+
+Statistics collected in cycle checker 'CycleCheckerCheckThenApply':
+  Additions -- no cyclicity test necessary
+  Deletions -- no cyclicity test necessary
+  Reversals -- none proposed
+
+Statistics collected in evaluator 'EvaluatorBDe':
+  Scores computed:          22980
+  Scores (cache)            placed         fetched        
+      with 0 parents:       0              0              
+      with 1 parents:       6              800            
+      with 2 parents:       30             2914           
+      with 3 parents:       5801           1555           
+      with 4 parents:       11804          3283           
+      with 5 parents:       5339           1299           
+
+Statistics collected in decider 'DeciderMetropolis':
+  Additions -- considered:  12398,  better score:  9974,  other accepted:  2412
+  Deletions -- considered:  20391,  better score:  2409,  other accepted:  9956
+  Reversals -- considered:  0 (min. Markov lag = 1)
+  Average permissivity:     0.606
+
+No Statistics collected in equivalence checker 'EquivalenceCheckerSkip'.
+
+Memory info after completing the search: Banjo is using 10 mb of memory
+
+
+Network #1, score: -1660.6243, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #2, score: -1660.6259, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 1 2 3 4 5    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #3, score: -1661.0187, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #4, score: -1661.4799, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 1 2 3 4 5    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #5, score: -1661.5958, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #6, score: -1661.6155, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #7, score: -1661.6171, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #8, score: -1661.8125, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #9, score: -1662.3897, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #10, score: -1662.4109, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #11, score: -1662.5374, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #12, score: -1662.5675, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #13, score: -1662.5871, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #14, score: -1662.6665, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #15, score: -1662.7152, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #16, score: -1662.7153, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #17, score: -1662.7842, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #18, score: -1663.0901, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   4 1 2 3 4      
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #19, score: -1663.2649, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #20, score: -1663.3809, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #21, score: -1663.3826, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #22, score: -1663.3914, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #23, score: -1663.3931, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 1 2 3 4 5    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #24, score: -1663.4427, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #25, score: -1663.5091, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #26, score: -1663.5692, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #27, score: -1663.6868, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #28, score: -1663.6885, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #29, score: -1707.6175, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #30, score: -1708.1964, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #31, score: -1708.2143, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #32, score: -1708.4113, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #33, score: -1708.4715, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #34, score: -1708.9885, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #35, score: -1709.0683, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #36, score: -1709.0699, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #37, score: -1709.1362, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #38, score: -1709.1679, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 0 1 2 3 4    
+2   1:   4 1 2 3 4      
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #39, score: -1709.2653, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   4 1 2 3 4      
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #40, score: -1709.3156, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   5 1 2 3 4 5    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #41, score: -1709.5111, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   4 1 2 3 4      
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #42, score: -1709.8621, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #43, score: -1710.1079, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #44, score: -1710.1095, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 1 2 3 4 5    
+2   1:   5 1 2 3 4 5    
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #45, score: -1710.2873, found by thread 1
+6
+0   1:   5 0 1 2 4 5    
+1   1:   5 0 1 2 3 4    
+2   1:   5 1 2 3 4 5    
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #46, score: -1728.0500, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 0 1 2 4 5    
+
+Network #47, score: -1728.4030, found by thread 1
+6
+0   1:   4 0 1 2 4      
+1   1:   5 1 2 3 4 5    
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   5 1 2 3 4 5    
+5   1:   5 1 2 3 4 5    
+
+Network #48, score: -1728.4647, found by thread 1
+6
+0   1:   4 0 1 2 4      
+1   1:   5 0 1 2 3 4    
+2   1:   5 0 1 2 3 4    
+3   1:   5 1 2 3 4 5    
+4   1:   5 0 1 2 3 4    
+5   1:   5 1 2 3 4 5    
+
+Network #49, score: -1729.0233, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 1 2 3 4 5    
+4   1:   5 1 2 3 4 5    
+5   1:   5 0 1 2 4 5    
+
+Network #50, score: -1729.0412, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   5 0 1 2 3 4    
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 0 1 2 4 5    
+
+-----------------------------------------------------------------------------
+- Post-processing                                            Influence scores
+-----------------------------------------------------------------------------
+
+Influence score for   (4,1) ->   (0,0)   .0000
+Influence score for   (3,1) ->   (0,0)   -.0129
+Influence score for   (2,1) ->   (0,0)   .0000
+Influence score for   (1,1) ->   (0,0)   .0000
+Influence score for   (0,1) ->   (0,0)   .0152
+Influence score for   (4,1) ->   (1,0)   .0000
+Influence score for   (3,1) ->   (1,0)   -.0215
+Influence score for   (2,1) ->   (1,0)   .0000
+Influence score for   (1,1) ->   (1,0)   .0000
+Influence score for   (4,1) ->   (2,0)   .0000
+Influence score for   (3,1) ->   (2,0)   -.0221
+Influence score for   (2,1) ->   (2,0)   .0000
+Influence score for   (1,1) ->   (2,0)   .0000
+Influence score for   (4,1) ->   (3,0)   .0000
+Influence score for   (3,1) ->   (3,0)   .0038
+Influence score for   (2,1) ->   (3,0)   .0000
+Influence score for   (1,1) ->   (3,0)   .0000
+Influence score for   (0,1) ->   (3,0)   .0000
+Influence score for   (4,1) ->   (4,0)   .0000
+Influence score for   (3,1) ->   (4,0)   -.0230
+Influence score for   (2,1) ->   (4,0)   .0000
+Influence score for   (1,1) ->   (4,0)   .0000
+Influence score for   (5,1) ->   (5,0)   .0169
+Influence score for   (4,1) ->   (5,0)   .0000
+Influence score for   (3,1) ->   (5,0)   -.0603
+Influence score for   (2,1) ->   (5,0)   .0000
+Influence score for   (1,1) ->   (5,0)   .0000
+
+
+-----------------------------------------------------------------------------
+- Post-processing                                             Consensus graph
+-----------------------------------------------------------------------------
+
+6
+0  1:5 0 1 2 3 4  	  
+1  1:4 1 2 3 4  	  
+2  1:4 1 2 3 4  	  
+3  1:4 1 2 3 4  	  
+4  1:4 1 2 3 4  	  
+5  1:5 1 2 3 4 5  	  
+
+
+-----------------------------------------------------------------------------
+- Post-processing                   Consensus graph and n-best graphs as HTML
+-----------------------------------------------------------------------------
+For max. Markov lag > 0, this feature is not available. 
+
+
+-----------------------------------------------------------------------------
+- Banjo                        Bayesian Network Inference with Java Objects -
+- Release 2.2.0                                                 15 Apr 2008 -
+- Licensed from Duke University                                             -
+- Copyright (c) 2005-08 by Alexander J. Hartemink                           -
+- All rights reserved                                                       -
+-----------------------------------------------------------------------------
+- Project:                                        Dynamic Extinction networks
+- User:                                                                 James
+- Dataset:  Extinction_Network_Positive_Control_8_dynamic_extinction_network_with_n6_L15_N10_I1000_in8
+- Notes:                  Time-course data for networks undergoing extinction
+-----------------------------------------------------------------------------
+- Settings file:                                                             
+-----------------------------------------------------------------------------
+- Input directory:         /Users/james/documents/dynamic_extinction_networks
+- Observations file:  Extinction Network Positive Control 8 dynamic_extinction network with n6 L15 N10 I1000 in8.txt
+- Number of observations (in file):                                      1000
+- Number of observations used for learning DBN:                           999
+- Number of variables:                                                      6
+- Discretization policy:                                                   q3
+- Exceptions to the discretization policy:                               none
+-----------------------------------------------------------------------------
+- Initial structure file:                                                    
+- 'Must be present' edges file:                                              
+- 'Must not be present' edges file:                                          
+- Min. Markov lag:                                                          1
+- Max. Markov lag:                                                          1
+- DBN mandatory identity lag(s):                                            1
+- Max. parent count:                                                        5
+- Equivalent sample size for Dirichlet parameter prior:                  6000
+-----------------------------------------------------------------------------
+- Searcher:                                                 SearcherSimAnneal
+- Proposer:                                             ProposerAllLocalMoves
+- Evaluator:                                        defaulted to EvaluatorBDe
+- Decider:                                     defaulted to DeciderMetropolis
+-----------------------------------------------------------------------------
+- Pre-compute logGamma:                                                   yes
+- Cache:                                                           fastLevel2
+- Cycle checking method:                                   Depth-first Search
+-----------------------------------------------------------------------------
+- Initial temperature:                                                   1000
+- Cooling factor:                                                         0.9
+- Reannealing temperature:                                                500
+- Max. accepted networks before cooling:                                 1000
+- Max. proposed networks before cooling:                                10000
+- Min. accepted networks before reannealing:                              200
+-----------------------------------------------------------------------------
+- Output directory:  /Users/james/documents/dynamic_extinction_networks/BanjoOutputs
+- Report file:  static.Extinction_Network_Positive_Control_8_dynamic_extinction_network_with_n6_L15_N10_I1000_in8Report.txt
+- Number of best networks tracked:                                         50
+- Best networks are:                                             nonIdentical
+- Max. time:                                                            1.0 h
+- Max. proposed networks:                                               32768
+- Max. restarts:                                                           20
+- Min. networks before checking:                                           30
+- Screen reporting interval:                                           10.0 s
+- File reporting interval:                                              1.0 m
+-----------------------------------------------------------------------------
+- Compute influence scores:                                               yes
+- Compute consensus graph:                                                 no
+- Create consensus graph as HTML:                                          no
+- Create 'dot' output:                                                     no
+- Location of 'dot':                                             not supplied
+-----------------------------------------------------------------------------
+- XML output directory:  /Users/james/documents/dynamic_extinction_networks/BanjoOutputs
+- XML Report file:                                                           
+- XML settings to export:                                                    
+- XML parser:                             org.apache.xerces.parsers.SAXParser
+- Banjo XML format version:                                               1.0
+-----------------------------------------------------------------------------
+- Seed for starting search:                                     1584697607301
+-----------------------------------------------------------------------------
+- Number of threads:                                                        1
+-----------------------------------------------------------------------------
+
+Memory info before starting the search: Banjo is using 6 mb of memory
+Prep. time used: 556.0 ms
+Beginning to search: expect a status report every 10.0 s
+
+
+
+-----------------------------------------------------------------------------
+- Final report                                          Best networks overall
+-----------------------------------------------------------------------------
+
+
+Network #1, score: -1660.0275, first found at iteration 600
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #2, score: -1660.6243, first found at iteration 628
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #3, score: -1725.0496, first found at iteration 571
+6
+0   1:   4 0 1 2 4      
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #4, score: -1807.6103, first found at iteration 541
+6
+0   1:   4 0 1 2 4      
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   4 1 2 4 5      
+
+Network #5, score: -1915.3796, first found at iteration 511
+6
+0   1:   4 0 1 2 4      
+1   1:   4 1 2 3 4      
+2   1:   3 1 2 4        
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   4 1 2 4 5      
+
+Network #6, score: -2023.1749, first found at iteration 481
+6
+0   1:   4 0 1 2 4      
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   4 1 2 4 5      
+
+Network #7, score: -2131.0183, first found at iteration 451
+6
+0   1:   4 0 1 2 4      
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   4 1 2 3 4      
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #8, score: -2276.3932, first found at iteration 421
+6
+0   1:   3 0 1 2        
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   4 1 2 3 4      
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #9, score: -2444.8083, first found at iteration 391
+6
+0   1:   2 0 1          
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   4 1 2 3 4      
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #10, score: -2565.3549, first found at iteration 361
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   4 1 2 3 4      
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #11, score: -2690.1174, first found at iteration 331
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   3 1 2 3        
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #12, score: -2847.2770, first found at iteration 301
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   2 1 3          
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #13, score: -2981.1183, first found at iteration 271
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   1 3            
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #14, score: -3167.5440, first found at iteration 241
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   1 3            
+4   1:   3 1 2 4        
+5   1:   3 1 2 5        
+
+Network #15, score: -3370.4484, first found at iteration 211
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   1 3            
+4   1:   3 1 2 4        
+5   1:   2 1 5          
+
+Network #16, score: -3516.5236, first found at iteration 181
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   1 3            
+4   1:   3 1 2 4        
+5   1:   1 5            
+
+Network #17, score: -3744.2347, first found at iteration 151
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   2 1 2          
+3   1:   1 3            
+4   1:   3 1 2 4        
+5   1:   1 5            
+
+Network #18, score: -3971.9635, first found at iteration 121
+6
+0   1:   1 0            
+1   1:   2 1 2          
+2   1:   2 1 2          
+3   1:   1 3            
+4   1:   3 1 2 4        
+5   1:   1 5            
+
+Network #19, score: -4201.0252, first found at iteration 91
+6
+0   1:   1 0            
+1   1:   2 1 2          
+2   1:   2 1 2          
+3   1:   1 3            
+4   1:   2 2 4          
+5   1:   1 5            
+
+Network #20, score: -4441.8058, first found at iteration 61
+6
+0   1:   1 0            
+1   1:   1 1            
+2   1:   2 1 2          
+3   1:   1 3            
+4   1:   2 2 4          
+5   1:   1 5            
+
+Network #21, score: -4683.5952, first found at iteration 31
+6
+0   1:   1 0            
+1   1:   1 1            
+2   1:   1 2            
+3   1:   1 3            
+4   1:   2 2 4          
+5   1:   1 5            
+
+Network #22, score: -4925.8085, first found at iteration 1
+6
+0   1:   1 0            
+1   1:   1 1            
+2   1:   1 2            
+3   1:   1 3            
+4   1:   1 4            
+5   1:   1 5            
+
+
+-----------------------------------------------------------------------------
+- Search Statistics                                                          
+-----------------------------------------------------------------------------
+
+Statistics collected in searcher 'SearcherSimAnneal':
+  Number of networks examined: 32803
+  Total time used: 2.63 s
+  High score: -1660.0275, first found at iteration 600
+  Number of re-anneals: 0
+
+Statistics collected in proposer 'ProposerAllLocalMoves':
+  Additions -- proposed:    8607
+  Deletions -- proposed:    24195
+  Reversals -- proposed:    0 (min. Markov lag = 1)
+
+Statistics collected in cycle checker 'CycleCheckerCheckThenApply':
+  Additions -- no cyclicity test necessary
+  Deletions -- no cyclicity test necessary
+  Reversals -- none proposed
+
+Statistics collected in evaluator 'EvaluatorBDe':
+  Scores computed:          30717
+  Scores (cache)            placed         fetched        
+      with 0 parents:       0              0              
+      with 1 parents:       6              18             
+      with 2 parents:       30             264            
+      with 3 parents:       12401          46             
+      with 4 parents:       10637          1783           
+      with 5 parents:       7643           1207           
+
+Statistics collected in decider 'DeciderMetropolis':
+  Additions -- considered:  606,  better score:  20,  other accepted:  585
+  Deletions -- considered:  585,  better score:  585,  other accepted:  0
+  Reversals -- considered:  0 (min. Markov lag = 1)
+  Average permissivity:     0.998
+
+No Statistics collected in equivalence checker 'EquivalenceCheckerSkip'.
+
+Memory info after completing the search: Banjo is using 10 mb of memory
+
+
+Network #1, score: -1660.0275, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #2, score: -1660.6243, found by thread 1
+6
+0   1:   5 0 1 2 3 4    
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   5 0 1 2 3 4    
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #3, score: -1725.0496, found by thread 1
+6
+0   1:   4 0 1 2 4      
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   5 1 2 3 4 5    
+
+Network #4, score: -1807.6103, found by thread 1
+6
+0   1:   4 0 1 2 4      
+1   1:   4 1 2 3 4      
+2   1:   4 1 2 3 4      
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   4 1 2 4 5      
+
+Network #5, score: -1915.3796, found by thread 1
+6
+0   1:   4 0 1 2 4      
+1   1:   4 1 2 3 4      
+2   1:   3 1 2 4        
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   4 1 2 4 5      
+
+Network #6, score: -2023.1749, found by thread 1
+6
+0   1:   4 0 1 2 4      
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   4 1 2 3 4      
+4   1:   4 1 2 3 4      
+5   1:   4 1 2 4 5      
+
+Network #7, score: -2131.0183, found by thread 1
+6
+0   1:   4 0 1 2 4      
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   4 1 2 3 4      
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #8, score: -2276.3932, found by thread 1
+6
+0   1:   3 0 1 2        
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   4 1 2 3 4      
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #9, score: -2444.8083, found by thread 1
+6
+0   1:   2 0 1          
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   4 1 2 3 4      
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #10, score: -2565.3549, found by thread 1
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   4 1 2 3 4      
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #11, score: -2690.1174, found by thread 1
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   3 1 2 3        
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #12, score: -2847.2770, found by thread 1
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   2 1 3          
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #13, score: -2981.1183, found by thread 1
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   1 3            
+4   1:   3 1 2 4        
+5   1:   4 1 2 4 5      
+
+Network #14, score: -3167.5440, found by thread 1
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   1 3            
+4   1:   3 1 2 4        
+5   1:   3 1 2 5        
+
+Network #15, score: -3370.4484, found by thread 1
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   1 3            
+4   1:   3 1 2 4        
+5   1:   2 1 5          
+
+Network #16, score: -3516.5236, found by thread 1
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   3 1 2 4        
+3   1:   1 3            
+4   1:   3 1 2 4        
+5   1:   1 5            
+
+Network #17, score: -3744.2347, found by thread 1
+6
+0   1:   1 0            
+1   1:   3 1 2 4        
+2   1:   2 1 2          
+3   1:   1 3            
+4   1:   3 1 2 4        
+5   1:   1 5            
+
+Network #18, score: -3971.9635, found by thread 1
+6
+0   1:   1 0            
+1   1:   2 1 2          
+2   1:   2 1 2          
+3   1:   1 3            
+4   1:   3 1 2 4        
+5   1:   1 5            
+
+Network #19, score: -4201.0252, found by thread 1
+6
+0   1:   1 0            
+1   1:   2 1 2          
+2   1:   2 1 2          
+3   1:   1 3            
+4   1:   2 2 4          
+5   1:   1 5            
+
+Network #20, score: -4441.8058, found by thread 1
+6
+0   1:   1 0            
+1   1:   1 1            
+2   1:   2 1 2          
+3   1:   1 3            
+4   1:   2 2 4          
+5   1:   1 5            
+
+Network #21, score: -4683.5952, found by thread 1
+6
+0   1:   1 0            
+1   1:   1 1            
+2   1:   1 2            
+3   1:   1 3            
+4   1:   2 2 4          
+5   1:   1 5            
+
+Network #22, score: -4925.8085, found by thread 1
+6
+0   1:   1 0            
+1   1:   1 1            
+2   1:   1 2            
+3   1:   1 3            
+4   1:   1 4            
+5   1:   1 5            
+
+-----------------------------------------------------------------------------
+- Post-processing                                            Influence scores
+-----------------------------------------------------------------------------
+
+Influence score for   (4,1) ->   (0,0)   .0000
+Influence score for   (3,1) ->   (0,0)   -.0129
+Influence score for   (2,1) ->   (0,0)   .0000
+Influence score for   (1,1) ->   (0,0)   .0000
+Influence score for   (0,1) ->   (0,0)   .0152
+Influence score for   (4,1) ->   (1,0)   .0000
+Influence score for   (3,1) ->   (1,0)   -.0215
+Influence score for   (2,1) ->   (1,0)   .0000
+Influence score for   (1,1) ->   (1,0)   .0000
+Influence score for   (4,1) ->   (2,0)   .0000
+Influence score for   (3,1) ->   (2,0)   -.0221
+Influence score for   (2,1) ->   (2,0)   .0000
+Influence score for   (1,1) ->   (2,0)   .0000
+Influence score for   (4,1) ->   (3,0)   .0000
+Influence score for   (3,1) ->   (3,0)   -.0212
+Influence score for   (2,1) ->   (3,0)   .0000
+Influence score for   (1,1) ->   (3,0)   .0000
+Influence score for   (4,1) ->   (4,0)   .0000
+Influence score for   (3,1) ->   (4,0)   -.0230
+Influence score for   (2,1) ->   (4,0)   .0000
+Influence score for   (1,1) ->   (4,0)   .0000
+Influence score for   (5,1) ->   (5,0)   .0169
+Influence score for   (4,1) ->   (5,0)   .0000
+Influence score for   (3,1) ->   (5,0)   -.0603
+Influence score for   (2,1) ->   (5,0)   .0000
+Influence score for   (1,1) ->   (5,0)   .0000
+

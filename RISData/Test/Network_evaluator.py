@@ -40,7 +40,7 @@ def output_to_array(path, nvariables): # returns a list
                             for j in range(0, nvariables):
                                 if int(jine[start:middlestart]) == i:
                                     if int(jine[middleend:end]) == j:
-                                        output[i, j] = influence
+                                        output[i, j] = 1 # influence
                 outputs.append(output) # if multiple output arrays, return as list
     file.close()
     return outputs
@@ -88,7 +88,7 @@ files.remove("Network_evaluator.py")
 # structure = open("C:\Users\User\Documents\GitHub\BL4201-SH-Project\extinction_networks\instance_0/network structure static network with n6 L15 N10 I1000 in0.txt", 'r')
 # output_file = open("{0}/summaries/summary.txt".format(current_directory), "w+")
 for file in files:
-    out = output_to_array("{0}/{1}".format(current_directory, file), 27) # used six variables for all the networks involved
+    out = output_to_array("{0}/{1}".format(current_directory, file), 38) # used six variables for all the networks involved
     draw_network(out[0], current_directory, file, 0)
     for i in range(0, len(out)-1):
         print("memes")
