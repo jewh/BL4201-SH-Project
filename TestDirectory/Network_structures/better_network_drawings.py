@@ -47,8 +47,9 @@ def draw_graph(path):
     # custom_lines = [Line2D([0], [0], color='g', lw=2),
     #                 Line2D([0], [0], color='m', lw=2)]
     # plt.legend(custom_lines, ['Positive Effects', 'Negative Effects'])
-    plt.title("Network Number {0}".format(between(path, ' in', '.txt')))
-    plt.savefig("{0}/figures/ColouredEdgesNetwork{1}.png".format(current_directory, between(path, ' in', '.txt')))
+    plt.title("DAG Network Number {0}".format(between(path, ' in', '.txt')))
+    plt.savefig("{0}/figures/ColouredEdgesDAGNetwork{1}.png".format(current_directory, between(path, ' in', '.txt')))
+    plt.show()
     plt.close()
 
 

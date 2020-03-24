@@ -78,7 +78,6 @@ def save_txt(array, kind, nodes, links, noise, iterations, instance, marker):
         array, fmt='%.6f', delimiter='\t')
     return file_network
 
-
 # Now create class of network equillibrium states, for given network types.
 
 
@@ -123,9 +122,27 @@ class ExtinctionNetwork:
         # returns a square matrix
         jacobian = nx.to_numpy_matrix(network, dtype=float)
         return jacobian
-    # Now create function for visualising the network structure
 
+    # Now create a function that creates random acylic directed graphs, and for comparison, one that generates cyclic graphs
 
+    def get_dag(self):
+        network = self.create_network()
+        g = nx.from_numpy_matrix(network, create_using=nx.DiGraph())
+        while not nx.is_directed_acyclic_graph(g): # so just checks all the generated graphs for if they're cyclic
+            network = self.create_network()
+            g = nx.from_numpy_matrix(network, create_using=nx.DiGraph())
+        output = nx.to_numpy_matrix(g)
+        return output
+    # Below is an equivalent function that just finds the first cyclic graph on its run
+    def get_cyclic(self):
+        network = self.create_network()
+        g = nx.from_numpy_matrix(network, create_using=nx.DiGraph())
+        while nx.is_directed_acyclic_graph(g):
+            network = self.create_network()
+            g = nx.from_numpy_matrix(network, create_using=nx.DiGraph())
+        output = nx.to_numpy_matrix(g)
+        return output
+    # Note that testing both functions above on 15 links, 6 nodes, they appear to generate non-equal networks
     def evolve_ecosystem(self):
         # Establish a network structure, and save this to an image file (.png)
         jacobian = self.create_network()
@@ -222,9 +239,34 @@ class ExtinctionNetwork:
             save_txt(out_pos_control, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance,
                      'Gene Network Positive Control {0}'.format(iterate))
 
-
-
-
+    def evolve_DAG(self):
+        dag_jacobian = self.get_dag()
+        cyclic_jacobian = self.get_cyclic()
+        # Seeing as I have a better drawing function locally than here, will just save as txt for now
+        save_txt(dag_jacobian, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance,
+                 'Acyclic structure')
+        save_txt(cyclic_jacobian, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance,
+                 'Cyclic structure')
+        # Now evolve, for static case
+        if self.kind == 'static':
+            for iterate in tqdm(range(0, self.number_replicates)):
+                t = 0  # create time counter
+                dag = np.full((self.iterations, self.nodes), 10.0)  # 10.0 being default initial state
+                # And a positive control network too.
+                cyclic = np.full((self.iterations, self.nodes), 10.0)  # 10.0 being default intial state
+                # And a totally random, negative control
+                # Now as we desire a number of replicate datasets for each network, place all of below beneath a ticker:
+                # Now evolve the system, for different kinds of network:
+                while t < self.time:
+                    t += 1
+                    for i in range(0, self.iterations):
+                        for j in range(0, self.nodes):
+                            for k in range(0, self.nodes):
+                                dag[i, j] = bound(dag[i, j] + noisy_interaction(dag_jacobian[k, j], dag[i, k], self.noise) * dag[i, k]) # heaviside function creates extinction
+                                cyclic[i, j] = bound(cyclic[i, j] + noisy_interaction(cyclic_jacobian[k, j], cyclic[i, k], self.noise)*cyclic[i, k])
+                # Now create .txt outputs for these networks.
+                save_txt(dag, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'DAG Network Output {0}'.format(iterate))
+                save_txt(cyclic, self.kind, self.nodes, self.links, self.noise, self.iterations, self.instance, 'Cyclic Network Output {0}'.format(iterate))
 
 
 # Now generate data for analysis
@@ -233,7 +275,7 @@ class ExtinctionNetwork:
 number_networks = 10
 for i in range(0, number_networks):
     #print("{0}%".format(100.0*i/float(number_networks)))
-    out = ExtinctionNetwork('gene_reg', 6, 15, 10.0, 1000, i)
-    out.evolve_genesystem()
+    out = ExtinctionNetwork('static', 6, 15, 10.0, 1000, i)
+    out.evolve_DAG()
 # end = default_timer()
 # print("----%s---- " %(end - start))

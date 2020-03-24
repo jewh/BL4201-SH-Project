@@ -1,0 +1,3 @@
+
+library(githubinstall)
+githubinstall(sgnesR)

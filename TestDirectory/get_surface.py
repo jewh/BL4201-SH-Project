@@ -192,17 +192,25 @@ def normalise_score(path):
 
 # Define a function that computes the length of curves composed of linear sections
 
-def get_length(y, x):
-    # initialise the length
-    length = 0.0
-    # assume the length of y = len x
-    for i in range(0, len(y)-1):
-        dy = y[i+1] - y[i]
-        dx = x[i+1] - x[i]
-        # get the euclidean distance
-        length += np.sqrt(dy**2 + dx**2)
-    length = length/x[len(x)-1]
-    return length
+def get_lengths(list_of_lists):
+    # assume that the list of lists is input
+    # define an output list
+    output = []
+    for li in list_of_lists:
+        y = li
+        # set up the x array
+        x = np.arange(0, len(y))
+        # initialise the length
+        length = 0.0
+        # assume the length of y = len x
+        for i in range(0, len(y)-1):
+            dy = y[i+1] - y[i]
+            dx = x[i+1] - x[i]
+            # get the euclidean distance
+            length += np.sqrt(dy**2 + dx**2)
+        length = length/float(len(y))
+        output.append(length)
+    return output
 
 # Define a smal function to map each dataset type to an index
 
@@ -238,10 +246,21 @@ def get_roughs(list_of_lists):
         roughness.append(float(total)/float(len(list)))
     return roughness
 
+# define a function to make a list of a certain string
 
+def list_of_string(string, n):
+    output = []
+    for i in range(0, n):
+        output.append(string)
+    return output
 
+# Define a function that will generate a jagged curve
 
-
+def get_jagged(n):
+    if n%2 == 0:
+        return 0
+    else:
+        return 2
 
 # result = normalise_score(r"C:\Users\User\Documents\GitHub\BL4201-SH-Project\TestDirectory\staticA3.txt")
 # x = np.arange(0, len(result))
@@ -352,7 +371,7 @@ for file in files:
         peaks.append(y[len(y)-1])
         x = np.arange(0, len(y))
         id = get_repeat(file, label, upper)
-        lengths[get_index(label)][id] = get_length(y, x)
+        # lengths[get_index(label)][id] = get_lengths(y)
 
 
 #     # now plot
@@ -387,18 +406,38 @@ for file in files:
 # #     plt.show()
 #
 #
+# Write code to get an idea of how this roughness metric behaves
+# Generate constant lists of 0 and a rough curve
+
+# constant_length = []
+# jagged_length = []
+# for i in range(0, 10):
+#     constant_length.append(get_length(list_of_string(0, 50)))
+#     appendix = []
+#     for j in range(0, 50):
+#         appendix.append(get_jagged(j))
+#     jagged_length.append(get_length(appendix))
+#
+# # Write code to output this to a csv file for R analysis
+# out = pd.DataFrame()
+# data = constant_length + jagged_length
+# id = list_of_string("Constant", len(constant_length)) + list_of_string("Jagged", len(jagged_length))
+# out["Metric"] = data
+# out["id"] = id
+# out.to_csv("C:/Users/User/Documents/GitHub/BL4201-SH-Project/TestDirectory/R/jaggedlength.csv")
+
 # Write code to output the roughness metric for a search instance
-sample_roughness = get_roughs(sample_distances)
-pos_roughness = get_roughs(pos_distances)
-neg_roughness = get_roughs(neg_distances)
-#
-#
-#
-# print("The output roughness is:")
-# print(f"Sample Roughness = {sample_roughness}")
-# print(f"Pos Control Roughness = {pos_roughness}")
-# print(f"Neg Control Roughness = {neg_roughness}")
-#
+sample_rough = get_roughs(sample_distances)
+pos_rough = get_roughs(pos_distances)
+neg_rough = get_roughs(neg_distances)
+
+
+
+print("The output roughness is:")
+print(f"Sample Roughness = {sample_rough}")
+print(f"Pos Control Roughness = {pos_rough}")
+print(f"Neg Control Roughness = {neg_rough}")
+
 # out_file = open(f"{current_directory}/roughness.txt", 'a')
 # # Now write to this file
 # out_file.write(f'{sample_roughness}\t{pos_roughness}\t{neg_roughness}\n')
@@ -410,14 +449,17 @@ instance = int(between(file, '_in', 'Report'))
 
 # Write code to ouput the roughness of each run into a csv file for R analysis
 data = pd.DataFrame()
-# Now add lists
-data[f"Sample in{instance}"] = sample_roughness
-data[f"Positive Control in{instance}"] = pos_roughness
-data[f"Negative Control in{instance}"] = neg_roughness
+# Now add two lists
+# One is a sample identifiers variable, and another is the value of curve roughness
+roughness = sample_lengths + pos_lengths + neg_lengths
+identifiers = list_of_string("Sample", len(sample_lengths)) + list_of_string("Positive Control",
+                len(pos_lengths)) + list_of_string("Negative Control", len(neg_lengths))
+data["Roughness"] = roughness
+data["id"] = identifiers
 # Check it looks correct
 print(data.head())
 # Now save to a csv file
-data.to_csv(f"{current_directory}/roughness_in{instance}.csv")
+data.to_csv(f"{current_directory}/R/curvelengths_in{instance}.csv")
 
 
 # Now input to it the
