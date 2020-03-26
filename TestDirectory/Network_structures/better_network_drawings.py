@@ -9,14 +9,18 @@ import networkx as nx
 
 #Define a function that returns the string between two characters and returns a number
 
-def between(string, string1, string2):
+def between(string, string1, string2, integer=True):
     start = string.index(string1)
     end = string.index(string2)
     if start <= end:
-        out = int(string[start+len(string1):end])
+        out = string[start+len(string1):end]
     else:
-        out = int(string[end+len(string2):start])
-    return out
+        out = string[end+len(string2):start]
+    if integer:
+        out = int(out)
+        return out
+    else:
+        return out
 
 # define a function that plots graph diagrams
 def draw_graph(path):
@@ -47,9 +51,8 @@ def draw_graph(path):
     # custom_lines = [Line2D([0], [0], color='g', lw=2),
     #                 Line2D([0], [0], color='m', lw=2)]
     # plt.legend(custom_lines, ['Positive Effects', 'Negative Effects'])
-    plt.title("DAG Network Number {0}".format(between(path, ' in', '.txt')))
-    plt.savefig("{0}/figures/ColouredEdgesDAGNetwork{1}.png".format(current_directory, between(path, ' in', '.txt')))
-    plt.show()
+    plt.title(f"{between(path, '/', ' structure', integer=False)} Network Number {between(path, ' in', '.txt')}")
+    plt.savefig(f"{current_directory}/figures/ColouredEdges{between(path, '/', ' structure', integer=False)}Network{between(path, ' in', '.txt')}.png")
     plt.close()
 
 

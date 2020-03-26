@@ -275,7 +275,7 @@ class ExtinctionNetwork:
 number_networks = 10
 for i in range(0, number_networks):
     #print("{0}%".format(100.0*i/float(number_networks)))
-    out = ExtinctionNetwork('static', 6, 15, 10.0, 1000, i)
+    out = ExtinctionNetwork('static', 6, 15, 1.0, 1000, i)
     out.evolve_DAG()
 # end = default_timer()
 # print("----%s---- " %(end - start))
