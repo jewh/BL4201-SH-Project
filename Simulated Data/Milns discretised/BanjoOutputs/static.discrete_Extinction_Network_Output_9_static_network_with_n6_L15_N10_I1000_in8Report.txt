@@ -1,0 +1,542 @@
+-----------------------------------------------------------------------------
+- Banjo                        Bayesian Network Inference with Java Objects -
+- Release 2.2.0                                                 15 Apr 2008 -
+- Licensed from Duke University                                             -
+- Copyright (c) 2005-08 by Alexander J. Hartemink                           -
+- All rights reserved                                                       -
+-----------------------------------------------------------------------------
+- Project:                                     Less Noisy Extinction networks
+- User:                                                                 James
+- Dataset:  discrete_Extinction_Network_Output_9_static_network_with_n6_L15_N10_I1000_in8
+- Notes:                              Testing effects of noise on BN learning
+-----------------------------------------------------------------------------
+- Settings file:                                                             
+-----------------------------------------------------------------------------
+- Input directory:                         /Users/james/documents/discretised
+- Observations file:  discrete_Extinction_Network_Output_9_static_network_with_n6_L15_N10_I1000_in8.txt
+- Observation count:                                                     1000
+- Number of variables:                                                      6
+- Discretization policy:                                                 none
+- Exceptions to the discretization policy:                               none
+-----------------------------------------------------------------------------
+- Initial structure file:                                                    
+- 'Must be present' edges file:                                              
+- 'Must not be present' edges file:                                          
+- Min. Markov lag:                                                          0
+- Max. Markov lag:                                                          0
+- Max. parent count:                                                        5
+- Equivalent sample size for Dirichlet parameter prior:                  6000
+-----------------------------------------------------------------------------
+- Searcher:                                                 SearcherSimAnneal
+- Proposer:                                             ProposerAllLocalMoves
+- Evaluator:                                        defaulted to EvaluatorBDe
+- Decider:                                     defaulted to DeciderMetropolis
+-----------------------------------------------------------------------------
+- Pre-compute logGamma:                                                   yes
+- Cache:                                                           fastLevel2
+- Cycle checking method:                                   Depth-first Search
+-----------------------------------------------------------------------------
+- Initial temperature:                                                   1000
+- Cooling factor:                                                         0.9
+- Reannealing temperature:                                                500
+- Max. accepted networks before cooling:                                 1000
+- Max. proposed networks before cooling:                                10000
+- Min. accepted networks before reannealing:                              200
+-----------------------------------------------------------------------------
+- Output directory:           /Users/james/documents/discretised/BanjoOutputs
+- Report file:  static.discrete_Extinction_Network_Output_9_static_network_with_n6_L15_N10_I1000_in8Report.txt
+- Number of best networks tracked:                                         50
+- Best networks are:                                             nonIdentical
+- Max. time:                                                            1.0 h
+- Max. proposed networks:                                               32768
+- Max. restarts:                                                           20
+- Min. networks before checking:                                           30
+- Screen reporting interval:                                           10.0 s
+- File reporting interval:                                              1.0 m
+-----------------------------------------------------------------------------
+- Compute influence scores:                                               yes
+- Compute consensus graph:                                                 no
+- Create consensus graph as HTML:                                          no
+- Create 'dot' output:                                                     no
+- Location of 'dot':                                             not supplied
+-----------------------------------------------------------------------------
+- XML output directory:       /Users/james/documents/discretised/BanjoOutputs
+- XML Report file:                                                           
+- XML settings to export:                                                    
+- XML parser:                             org.apache.xerces.parsers.SAXParser
+- Banjo XML format version:                                               1.0
+-----------------------------------------------------------------------------
+- Seed for starting search:                                     1585388558282
+-----------------------------------------------------------------------------
+- Number of threads:                                                        1
+-----------------------------------------------------------------------------
+
+Memory info before starting the search: Banjo is using 2 mb of memory
+Prep. time used: 148.0 ms
+Beginning to search: expect a status report every 10.0 s
+
+
+
+-----------------------------------------------------------------------------
+- Final report                                          Best networks overall
+-----------------------------------------------------------------------------
+
+
+Network #1, score: -2645.7306, first found at iteration 781
+6
+0 2 1 2
+1 1 2
+2 0
+3 3 0 1 2
+4 5 0 1 2 3 5
+5 4 0 1 2 3
+
+Network #2, score: -2645.7306, first found at iteration 736
+6
+0 2 1 2
+1 1 2
+2 0
+3 4 0 1 2 5
+4 5 0 1 2 3 5
+5 3 0 1 2
+
+Network #3, score: -2645.7306, first found at iteration 691
+6
+0 2 1 2
+1 1 2
+2 0
+3 5 0 1 2 4 5
+4 4 0 1 2 5
+5 3 0 1 2
+
+Network #4, score: -2645.7306, first found at iteration 826
+6
+0 3 1 2 3
+1 1 2
+2 0
+3 2 1 2
+4 5 0 1 2 3 5
+5 4 0 1 2 3
+
+Network #5, score: -2645.7306, first found at iteration 646
+6
+0 3 1 2 5
+1 1 2
+2 0
+3 5 0 1 2 4 5
+4 4 0 1 2 5
+5 2 1 2
+
+Network #6, score: -2645.7306, first found at iteration 601
+6
+0 4 1 2 4 5
+1 1 2
+2 0
+3 5 0 1 2 4 5
+4 3 1 2 5
+5 2 1 2
+
+Network #7, score: -2645.7306, first found at iteration 556
+6
+0 5 1 2 3 4 5
+1 1 2
+2 0
+3 4 1 2 4 5
+4 3 1 2 5
+5 2 1 2
+
+Network #8, score: -2723.8559, first found at iteration 512
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 4 1 2 4 5
+4 3 1 2 5
+5 2 1 2
+
+Network #9, score: -2815.0524, first found at iteration 469
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 4 1 2 4 5
+4 3 1 2 5
+5 1 1
+
+Network #10, score: -2916.8357, first found at iteration 427
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 4 1 2 4 5
+4 2 1 2
+5 1 1
+
+Network #11, score: -3008.0322, first found at iteration 386
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 4 1 2 4 5
+4 1 1
+5 1 1
+
+Network #12, score: -3103.8924, first found at iteration 346
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 3 1 2 4
+4 1 1
+5 1 1
+
+Network #13, score: -3205.6758, first found at iteration 307
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 2 1 2
+4 1 1
+5 1 1
+
+Network #14, score: -3296.8722, first found at iteration 269
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 1 1
+4 1 1
+5 1 1
+
+Network #15, score: -3392.7325, first found at iteration 232
+6
+0 3 1 2 3
+1 1 2
+2 0
+3 1 1
+4 1 1
+5 1 1
+
+Network #16, score: -3494.5158, first found at iteration 196
+6
+0 2 1 2
+1 1 2
+2 0
+3 1 1
+4 1 1
+5 1 1
+
+Network #17, score: -3585.7123, first found at iteration 161
+6
+0 1 1
+1 1 2
+2 0
+3 1 1
+4 1 1
+5 1 1
+
+Network #18, score: -3683.0006, first found at iteration 127
+6
+0 1 1
+1 0
+2 0
+3 1 1
+4 1 1
+5 1 1
+
+Network #19, score: -3781.1476, first found at iteration 94
+6
+0 1 1
+1 0
+2 0
+3 1 1
+4 1 1
+5 0
+
+Network #20, score: -3879.2947, first found at iteration 62
+6
+0 1 1
+1 0
+2 0
+3 1 1
+4 0
+5 0
+
+Network #21, score: -3977.4418, first found at iteration 31
+6
+0 1 1
+1 0
+2 0
+3 0
+4 0
+5 0
+
+Network #22, score: -4075.5889, first found at iteration 1
+6
+0 0
+1 0
+2 0
+3 0
+4 0
+5 0
+
+
+-----------------------------------------------------------------------------
+- Search Statistics                                                          
+-----------------------------------------------------------------------------
+
+Statistics collected in searcher 'SearcherSimAnneal':
+  Number of networks examined: 32776
+  Total time used: 265.0 ms
+  High score: -2645.7306, first found at iteration 781
+  Number of re-anneals: 0
+
+Statistics collected in proposer 'ProposerAllLocalMoves':
+  Additions -- proposed:    11085
+  Deletions -- proposed:    10845
+  Reversals -- proposed:    10845
+
+Statistics collected in cycle checker 'CycleCheckerCheckThenApply':
+  Additions -- considered:  11085,  acyclic:  215
+  Deletions -- no cyclicity test necessary
+  Reversals -- considered:  10845,  acyclic:  3644
+
+Statistics collected in evaluator 'EvaluatorBDe':
+  Scores computed:          5128
+  Scores (cache)            placed         fetched        
+      with 0 parents:       6              1520           
+      with 1 parents:       30             2991           
+      with 2 parents:       26             4455           
+      with 3 parents:       2173           2908           
+      with 4 parents:       2166           2858           
+      with 5 parents:       727            3              
+
+Statistics collected in decider 'DeciderMetropolis':
+  Additions -- considered:  15,  better score:  15,  other accepted:  0
+  Deletions -- considered:  0,  better score:  0,  other accepted:  0
+  Reversals -- considered:  716,  better score:  716,  other accepted:  0
+  Average permissivity:     n/a
+
+No Statistics collected in equivalence checker 'EquivalenceCheckerSkip'.
+
+Memory info after completing the search: Banjo is using 6 mb of memory
+
+
+Network #1, score: -2645.7306, found by thread 1
+6
+0 2 1 2
+1 1 2
+2 0
+3 3 0 1 2
+4 5 0 1 2 3 5
+5 4 0 1 2 3
+
+Network #2, score: -2645.7306, found by thread 1
+6
+0 2 1 2
+1 1 2
+2 0
+3 4 0 1 2 5
+4 5 0 1 2 3 5
+5 3 0 1 2
+
+Network #3, score: -2645.7306, found by thread 1
+6
+0 2 1 2
+1 1 2
+2 0
+3 5 0 1 2 4 5
+4 4 0 1 2 5
+5 3 0 1 2
+
+Network #4, score: -2645.7306, found by thread 1
+6
+0 3 1 2 3
+1 1 2
+2 0
+3 2 1 2
+4 5 0 1 2 3 5
+5 4 0 1 2 3
+
+Network #5, score: -2645.7306, found by thread 1
+6
+0 3 1 2 5
+1 1 2
+2 0
+3 5 0 1 2 4 5
+4 4 0 1 2 5
+5 2 1 2
+
+Network #6, score: -2645.7306, found by thread 1
+6
+0 4 1 2 4 5
+1 1 2
+2 0
+3 5 0 1 2 4 5
+4 3 1 2 5
+5 2 1 2
+
+Network #7, score: -2645.7306, found by thread 1
+6
+0 5 1 2 3 4 5
+1 1 2
+2 0
+3 4 1 2 4 5
+4 3 1 2 5
+5 2 1 2
+
+Network #8, score: -2723.8559, found by thread 1
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 4 1 2 4 5
+4 3 1 2 5
+5 2 1 2
+
+Network #9, score: -2815.0524, found by thread 1
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 4 1 2 4 5
+4 3 1 2 5
+5 1 1
+
+Network #10, score: -2916.8357, found by thread 1
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 4 1 2 4 5
+4 2 1 2
+5 1 1
+
+Network #11, score: -3008.0322, found by thread 1
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 4 1 2 4 5
+4 1 1
+5 1 1
+
+Network #12, score: -3103.8924, found by thread 1
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 3 1 2 4
+4 1 1
+5 1 1
+
+Network #13, score: -3205.6758, found by thread 1
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 2 1 2
+4 1 1
+5 1 1
+
+Network #14, score: -3296.8722, found by thread 1
+6
+0 4 1 2 3 4
+1 1 2
+2 0
+3 1 1
+4 1 1
+5 1 1
+
+Network #15, score: -3392.7325, found by thread 1
+6
+0 3 1 2 3
+1 1 2
+2 0
+3 1 1
+4 1 1
+5 1 1
+
+Network #16, score: -3494.5158, found by thread 1
+6
+0 2 1 2
+1 1 2
+2 0
+3 1 1
+4 1 1
+5 1 1
+
+Network #17, score: -3585.7123, found by thread 1
+6
+0 1 1
+1 1 2
+2 0
+3 1 1
+4 1 1
+5 1 1
+
+Network #18, score: -3683.0006, found by thread 1
+6
+0 1 1
+1 0
+2 0
+3 1 1
+4 1 1
+5 1 1
+
+Network #19, score: -3781.1476, found by thread 1
+6
+0 1 1
+1 0
+2 0
+3 1 1
+4 1 1
+5 0
+
+Network #20, score: -3879.2947, found by thread 1
+6
+0 1 1
+1 0
+2 0
+3 1 1
+4 0
+5 0
+
+Network #21, score: -3977.4418, found by thread 1
+6
+0 1 1
+1 0
+2 0
+3 0
+4 0
+5 0
+
+Network #22, score: -4075.5889, found by thread 1
+6
+0 0
+1 0
+2 0
+3 0
+4 0
+5 0
+
+-----------------------------------------------------------------------------
+- Post-processing                                            Influence scores
+-----------------------------------------------------------------------------
+
+Influence score for   (2,0) ->   (0,0)   -.0838
+Influence score for   (1,0) ->   (0,0)   .0000
+Influence score for   (2,0) ->   (1,0)   .1242
+Influence score for   (2,0) ->   (3,0)   -.0842
+Influence score for   (1,0) ->   (3,0)   .0000
+Influence score for   (0,0) ->   (3,0)   .1395
+Influence score for   (5,0) ->   (4,0)   .0400
+Influence score for   (3,0) ->   (4,0)   .0400
+Influence score for   (2,0) ->   (4,0)   -.0216
+Influence score for   (1,0) ->   (4,0)   .0000
+Influence score for   (0,0) ->   (4,0)   .0400
+Influence score for   (3,0) ->   (5,0)   .0756
+Influence score for   (2,0) ->   (5,0)   -.0508
+Influence score for   (1,0) ->   (5,0)   .0000
+Influence score for   (0,0) ->   (5,0)   .0756
+
