@@ -56,7 +56,7 @@ def bound(x):
 
 def draw_network(jacobian, kind, nodes, links, noise, alpha, beta, instance):
        # print("drawing")
-        g = nx.from_numpy_matrix(jacobian, create_using=nx.DiGraph())
+        g = nx.from_numpy_array(jacobian, create_using=nx.DiGraph())
         plt.figure()
         if kind == 'gene_reg':
             genes = np.arange(0, nodes)
@@ -109,7 +109,7 @@ class ExtinctionNetwork:
         network = nx.gnm_random_graph(self.nodes, self.links, directed=True)
         for (i, j) in network.edges():
             network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta )*(-1)**(rd.choice((1, 2))) # Does this actually specify only values on the zeros?
-        jacobian = nx.to_numpy_matrix(network, dtype=float)
+        jacobian = nx.to_numpy_array(network, dtype=float)
         return jacobian
 
     # ***This function appears to work as intended, maybe need to alter the distribution of interaction strengths though***
@@ -127,27 +127,31 @@ class ExtinctionNetwork:
         for (i, j) in network.edges():
             network.edges[i, j]['weight'] = rd.betavariate(self.alpha, self.beta )*(-1)**(rd.choice((1, 2)))
         # returns a square matrix
-        jacobian = nx.to_numpy_matrix(network, dtype=float)
+        jacobian = nx.to_numpy_array(network, dtype=float)
         return jacobian
 
     # Now create a function that creates random acylic directed graphs, and for comparison, one that generates cyclic graphs
 
     def get_dag(self):
+
         network = self.create_network()
-        g = nx.from_numpy_matrix(network, create_using=nx.DiGraph())
+        g = nx.from_numpy_array(network, create_using=nx.DiGraph())
+
         while not nx.is_directed_acyclic_graph(g): # so just checks all the generated graphs for if they're cyclic
             network = self.create_network()
-            g = nx.from_numpy_matrix(network, create_using=nx.DiGraph())
-        output = nx.to_numpy_matrix(g)
+            g = nx.from_numpy_array(network, create_using=nx.DiGraph())
+        output = nx.to_numpy_array(g)
+
         return output
+    
     # Below is an equivalent function that just finds the first cyclic graph on its run
     def get_cyclic(self):
         network = self.create_network()
-        g = nx.from_numpy_matrix(network, create_using=nx.DiGraph())
+        g = nx.from_numpy_array(network, create_using=nx.DiGraph())
         while nx.is_directed_acyclic_graph(g):
             network = self.create_network()
-            g = nx.from_numpy_matrix(network, create_using=nx.DiGraph())
-        output = nx.to_numpy_matrix(g)
+            g = nx.from_numpy_array(network, create_using=nx.DiGraph())
+        output = nx.to_numpy_array(g)
         return output
     # Note that testing both functions above on 15 links, 6 nodes, they appear to generate non-equal networks
     def evolve_ecosystem(self):
